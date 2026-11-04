@@ -60,6 +60,7 @@ export type SiteContent = {
     title: string;
     desc: string;
     email: string;
+    phone: string;
     location: string;
     form: {
       name: string;
@@ -82,6 +83,7 @@ export type SiteContent = {
 };
 
 const EMAIL = "namatihadi7@gmail.com";
+const PHONE = "0992 343 5142";
 
 export const siteLinks = {
   github: "https://github.com/hadinmt85",
@@ -229,6 +231,7 @@ export const site: Record<Lang, SiteContent> = {
       title: "بیایید چیزی بسازیم",
       desc: "برای همکاری، مشاوره یا حتی یک گفت‌وگوی کوتاه دربارهٔ فرانت‌اند پیام بده. معمولاً کمتر از یک روز کاری پاسخ می‌دهم.",
       email: EMAIL,
+      phone: PHONE,
       location: "اردبیل، ایران",
       form: {
         name: "نام",
@@ -384,6 +387,7 @@ export const site: Record<Lang, SiteContent> = {
       title: "Let's build something",
       desc: "Drop me a line about a project, a collaboration, or just to talk front-end. I usually reply within one business day.",
       email: EMAIL,
+      phone: PHONE,
       location: "Ardabil, Iran",
       form: {
         name: "Name",

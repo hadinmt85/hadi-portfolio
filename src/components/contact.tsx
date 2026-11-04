@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { ArrowUpRight, Github, Mail, MapPin, Telegram } from "@/components/icons";
+import { ArrowUpRight, Github, Mail, MapPin, Phone, Telegram } from "@/components/icons";
 import { siteLinks } from "@/content/site";
 import type { Social } from "@/content/site";
 
@@ -52,6 +52,13 @@ export function Contact() {
 
   const rows = [
     { icon: Mail, label: contact.email, href: `mailto:${contact.email}`, value: contact.email, ltr: true },
+    {
+      icon: Phone,
+      label: contact.phone,
+      href: `tel:${contact.phone.replace(/\s/g, "")}`,
+      value: contact.phone,
+      ltr: true,
+    },
     { icon: MapPin, label: contact.location, href: undefined, value: contact.location, ltr: false },
   ];
 

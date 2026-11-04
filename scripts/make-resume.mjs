@@ -3,7 +3,8 @@ import { writeFileSync, mkdirSync } from "node:fs";
 const lines = [
   ["F1", 22, 60, 770, "Hadi Nemati"],
   ["F2", 11, 60, 750, "Front-end Developer  |  React / Next.js / TypeScript"],
-  ["F2", 10, 60, 730, "Tehran, Iran  ·  hadi.nemati@example.com  ·  github.com/hadi-nemati"],
+  ["F2", 10, 60, 730, "Ardabil, Iran  |  0992 343 5142  |  namatihadi7@gmail.com"],
+  ["F2", 10, 60, 716, "github.com/hadinmt85  |  t.me/hadinmt85"],
   ["F1", 12, 60, 680, "Profile"],
   ["F2", 10, 60, 662, "Front-end developer with 5+ years of experience building fast, accessible and"],
   ["F2", 10, 60, 648, "maintainable web interfaces. Focused on React, Next.js and design systems."],
