@@ -112,7 +112,7 @@ export const site: Record<Lang, SiteContent> = {
       primaryCta: "دیدن نمونه‌کارها",
       secondaryCta: "تماس با من",
       resume: "دانلود رزومه",
-      location: "تهران، ایران",
+      location: "اردبیل، ایران",
       card: {
         status: "آمادهٔ پروژهٔ جدید",
         stackLabel: "پشتهٔ کاری",
@@ -229,7 +229,7 @@ export const site: Record<Lang, SiteContent> = {
       title: "بیایید چیزی بسازیم",
       desc: "برای همکاری، مشاوره یا حتی یک گفت‌وگوی کوتاه دربارهٔ فرانت‌اند پیام بده. معمولاً کمتر از یک روز کاری پاسخ می‌دهم.",
       email: EMAIL,
-      location: "تهران، ایران",
+      location: "اردبیل، ایران",
       form: {
         name: "نام",
         namePlaceholder: "نام و نام خانوادگی",
@@ -267,7 +267,7 @@ export const site: Record<Lang, SiteContent> = {
       primaryCta: "View my work",
       secondaryCta: "Get in touch",
       resume: "Download CV",
-      location: "Tehran, Iran",
+      location: "Ardabil, Iran",
       card: {
         status: "Available for new projects",
         stackLabel: "Stack",
@@ -384,7 +384,7 @@ export const site: Record<Lang, SiteContent> = {
       title: "Let's build something",
       desc: "Drop me a line about a project, a collaboration, or just to talk front-end. I usually reply within one business day.",
       email: EMAIL,
-      location: "Tehran, Iran",
+      location: "Ardabil, Iran",
       form: {
         name: "Name",
         namePlaceholder: "Your full name",
