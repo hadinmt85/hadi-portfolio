@@ -4,12 +4,12 @@ import { useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { ArrowUpRight, Github, Linkedin, Mail, MapPin, Phone, Telegram } from "@/components/icons";
+import { ArrowUpRight, Github, Mail, MapPin, Telegram } from "@/components/icons";
+import { siteLinks } from "@/content/site";
 import type { Social } from "@/content/site";
 
 const socialIcons = {
   github: Github,
-  linkedin: Linkedin,
   telegram: Telegram,
   mail: Mail,
 };
@@ -52,7 +52,6 @@ export function Contact() {
 
   const rows = [
     { icon: Mail, label: contact.email, href: `mailto:${contact.email}`, value: contact.email, ltr: true },
-    { icon: Phone, label: contact.phone, href: `tel:${contact.phone.replace(/\s/g, "")}`, value: contact.phone, ltr: true },
     { icon: MapPin, label: contact.location, href: undefined, value: contact.location, ltr: false },
   ];
 
@@ -112,12 +111,13 @@ export function Contact() {
                         <SocialLink key={social.label} social={social} />
                       ))}
                       <a
-                        href="https://github.com/hadi-nemati"
+                        href={siteLinks.github}
                         target="_blank"
                         rel="noreferrer"
+                        dir="ltr"
                         className="ms-1 inline-flex items-center gap-1 text-[12px] text-muted transition-colors hover:text-emerald-300"
                       >
-                        @hadi-nemati
+                        {siteLinks.githubHandle}
                         <ArrowUpRight className="h-3 w-3" />
                       </a>
                     </div>

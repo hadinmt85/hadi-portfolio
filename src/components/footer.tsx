@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/components/language-provider";
 import { ArrowDown, ArrowUpRight, Github } from "@/components/icons";
+import { siteLinks } from "@/content/site";
 
 export function Footer() {
   const { t, lang } = useLanguage();
@@ -25,7 +26,7 @@ export function Footer() {
             © {year} {t.hero.name} — {t.footer.rights}
           </span>
           <a
-            href="https://github.com/hadi-nemati"
+            href={siteLinks.github}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-1.5 transition-colors hover:text-emerald-300"

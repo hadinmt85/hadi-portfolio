@@ -13,7 +13,7 @@ export type Project = {
   gradient: string;
   accent: string;
 };
-export type Social = { label: string; href: string; icon: "github" | "linkedin" | "telegram" | "mail" };
+export type Social = { label: string; href: string; icon: "github" | "telegram" | "mail" };
 export type NavItem = { id: string; label: string };
 
 export type SiteContent = {
@@ -60,7 +60,6 @@ export type SiteContent = {
     title: string;
     desc: string;
     email: string;
-    phone: string;
     location: string;
     form: {
       name: string;
@@ -82,12 +81,17 @@ export type SiteContent = {
   };
 };
 
-const EMAIL = "hadi.nemati@example.com";
-const PHONE = "+98 912 000 0000";
+const EMAIL = "namatihadi7@gmail.com";
 
-const github: Social = { label: "GitHub", href: "https://github.com/hadi-nemati", icon: "github" };
-const linkedin: Social = { label: "LinkedIn", href: "https://linkedin.com/in/hadi-nemati", icon: "linkedin" };
-const telegram: Social = { label: "Telegram", href: "https://t.me/hadi_nemati", icon: "telegram" };
+export const siteLinks = {
+  github: "https://github.com/hadinmt85",
+  githubHandle: "@hadinmt85",
+  telegram: "https://t.me/hadinmt85",
+  email: EMAIL,
+};
+
+const github: Social = { label: "GitHub", href: siteLinks.github, icon: "github" };
+const telegram: Social = { label: "Telegram", href: siteLinks.telegram, icon: "telegram" };
 const mail: Social = { label: "Email", href: `mailto:${EMAIL}`, icon: "mail" };
 
 export const site: Record<Lang, SiteContent> = {
@@ -187,7 +191,7 @@ export const site: Record<Lang, SiteContent> = {
           blurb: "داشبورد تحلیلی با نمودارهای زنده، فیلتر پیشرفته و خروجی اکسل.",
           tags: ["React", "TypeScript", "Recharts"],
           year: "۱۴۰۴",
-          href: "https://github.com/hadi-nemati",
+          href: siteLinks.github,
           gradient: "linear-gradient(135deg, #04211c 0%, #0f766e 55%, #0891b2 100%)",
           accent: "#a7f3d0",
         },
@@ -196,7 +200,7 @@ export const site: Record<Lang, SiteContent> = {
           blurb: "فروشگاه آنلاین با سبد خرید، پرداخت امن و پنل مدیریت سفارش‌ها.",
           tags: ["Next.js", "Stripe", "Tailwind"],
           year: "۱۴۰۳",
-          href: "https://github.com/hadi-nemati",
+          href: siteLinks.github,
           gradient: "linear-gradient(135deg, #041f1c 0%, #115e59 50%, #15803d 100%)",
           accent: "#bbf7d0",
         },
@@ -205,7 +209,7 @@ export const site: Record<Lang, SiteContent> = {
           blurb: "اپ مدیریت وظیفهٔ تیمی با درگ‌اند‌دراپ، حالت آفلاین و همگام‌سازی زنده.",
           tags: ["React", "Zustand", "PWA"],
           year: "۱۴۰۳",
-          href: "https://github.com/hadi-nemati",
+          href: siteLinks.github,
           gradient: "linear-gradient(135deg, #04211f 0%, #0e7490 55%, #4d7c0f 100%)",
           accent: "#d9f99d",
         },
@@ -214,7 +218,7 @@ export const site: Record<Lang, SiteContent> = {
           blurb: "سایت شرکتی دوزبانه با سرعت بالا، ساختار سئو‌محور و مدیریت محتوا.",
           tags: ["Next.js", "i18n", "SEO"],
           year: "۱۴۰۲",
-          href: "https://github.com/hadi-nemati",
+          href: siteLinks.github,
           gradient: "linear-gradient(135deg, #0a1220 0%, #134e4a 55%, #0f766e 100%)",
           accent: "#a7f3d0",
         },
@@ -225,7 +229,6 @@ export const site: Record<Lang, SiteContent> = {
       title: "بیایید چیزی بسازیم",
       desc: "برای همکاری، مشاوره یا حتی یک گفت‌وگوی کوتاه دربارهٔ فرانت‌اند پیام بده. معمولاً کمتر از یک روز کاری پاسخ می‌دهم.",
       email: EMAIL,
-      phone: PHONE,
       location: "تهران، ایران",
       form: {
         name: "نام",
@@ -238,7 +241,7 @@ export const site: Record<Lang, SiteContent> = {
         note: "این فرم پیام را در برنامهٔ ایمیل شما باز می‌کند.",
         success: "برنامهٔ ایمیل باز شد. اگر باز نشد، مستقیم به من ایمیل بزن.",
       },
-      socials: [github, linkedin, telegram, mail],
+      socials: [github, telegram, mail],
     },
     footer: {
       tagline: "ساخته‌شده با Next.js، Tailwind و مقدار زیادی قهوه.",
@@ -343,7 +346,7 @@ export const site: Record<Lang, SiteContent> = {
           blurb: "Analytics dashboard with live charts, advanced filtering and CSV export.",
           tags: ["React", "TypeScript", "Recharts"],
           year: "2025",
-          href: "https://github.com/hadi-nemati",
+          href: siteLinks.github,
           gradient: "linear-gradient(135deg, #04211c 0%, #0f766e 55%, #0891b2 100%)",
           accent: "#a7f3d0",
         },
@@ -352,7 +355,7 @@ export const site: Record<Lang, SiteContent> = {
           blurb: "Online shop with cart, secure checkout and an order management panel.",
           tags: ["Next.js", "Stripe", "Tailwind"],
           year: "2024",
-          href: "https://github.com/hadi-nemati",
+          href: siteLinks.github,
           gradient: "linear-gradient(135deg, #041f1c 0%, #115e59 50%, #15803d 100%)",
           accent: "#bbf7d0",
         },
@@ -361,7 +364,7 @@ export const site: Record<Lang, SiteContent> = {
           blurb: "Team task app with drag & drop, offline mode and live sync.",
           tags: ["React", "Zustand", "PWA"],
           year: "2024",
-          href: "https://github.com/hadi-nemati",
+          href: siteLinks.github,
           gradient: "linear-gradient(135deg, #04211f 0%, #0e7490 55%, #4d7c0f 100%)",
           accent: "#d9f99d",
         },
@@ -370,7 +373,7 @@ export const site: Record<Lang, SiteContent> = {
           blurb: "Bilingual corporate site with great speed, SEO structure and a CMS.",
           tags: ["Next.js", "i18n", "SEO"],
           year: "2023",
-          href: "https://github.com/hadi-nemati",
+          href: siteLinks.github,
           gradient: "linear-gradient(135deg, #0a1220 0%, #134e4a 55%, #0f766e 100%)",
           accent: "#a7f3d0",
         },
@@ -381,7 +384,6 @@ export const site: Record<Lang, SiteContent> = {
       title: "Let's build something",
       desc: "Drop me a line about a project, a collaboration, or just to talk front-end. I usually reply within one business day.",
       email: EMAIL,
-      phone: PHONE,
       location: "Tehran, Iran",
       form: {
         name: "Name",
@@ -394,7 +396,7 @@ export const site: Record<Lang, SiteContent> = {
         note: "This form opens the message in your email app.",
         success: "Your email app should be open. If not, mail me directly.",
       },
-      socials: [github, linkedin, telegram, mail],
+      socials: [github, telegram, mail],
     },
     footer: {
       tagline: "Built with Next.js, Tailwind and a lot of coffee.",

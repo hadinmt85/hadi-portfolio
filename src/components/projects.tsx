@@ -4,6 +4,7 @@ import { useLanguage } from "@/components/language-provider";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { ArrowUpRight, Github } from "@/components/icons";
+import { siteLinks } from "@/content/site";
 import type { Project } from "@/content/site";
 
 function ProjectArt({ project }: { project: Project }) {
@@ -73,7 +74,7 @@ export function Projects() {
           </Reveal>
           <Reveal delay={120}>
             <a
-              href="https://github.com/hadi-nemati"
+              href={siteLinks.github}
               target="_blank"
               rel="noreferrer"
               className="group inline-flex items-center gap-2 text-[13px] text-muted transition-colors hover:text-emerald-300"
