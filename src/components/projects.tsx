@@ -7,8 +7,14 @@ import { ArrowUpRight, Github } from "@/components/icons";
 import { siteLinks } from "@/content/site";
 import type { Project } from "@/content/site";
 
-function ProjectArt({ project }: { project: Project }) {
-  const bars = [38, 62, 48, 80, 56, 92];
+function ProjectArt({ project, index }: { project: Project; index: number }) {
+  const layouts = [
+    [38, 62, 48, 80, 56, 92],
+    [72, 44, 88, 54, 66, 36],
+    [50, 78, 40, 66, 92, 48],
+  ];
+  const bars = layouts[index % layouts.length];
+  const flip = index % 2 === 1;
 
   return (
     <div className="relative h-52 overflow-hidden" style={{ background: project.gradient }} dir="ltr">
@@ -35,7 +41,7 @@ function ProjectArt({ project }: { project: Project }) {
           <span className="ms-auto h-3 w-24 rounded-full bg-white/12" />
         </div>
 
-        <div className="mt-4 flex flex-1 gap-3">
+        <div className={`mt-4 flex flex-1 gap-3 ${flip ? "flex-row-reverse" : ""}`}>
           <div className="flex-1 space-y-2">
             <div className="h-2 w-2/3 rounded-full bg-white/55" />
             <div className="h-1.5 w-full rounded-full bg-white/25" />
@@ -88,18 +94,18 @@ export function Projects() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.items.map((project, index) => (
             <Reveal key={project.title} delay={(index % 2) * 100 + Math.floor(index / 2) * 60}>
               <a
                 href={project.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group card-hover block h-full overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.02] focus-visible:outline-emerald-400"
+                className="group card-hover flex h-full flex-col overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.02] focus-visible:outline-emerald-400"
               >
-                <ProjectArt project={project} />
+                <ProjectArt project={project} index={index} />
 
-                <div className="p-6">
+                <div className="flex flex-1 flex-col p-6">
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-muted/70">
                       {project.year}
@@ -122,7 +128,7 @@ export function Projects() {
                     ))}
                   </div>
 
-                  <p className="mt-5 inline-flex items-center gap-1.5 text-[12px] font-medium text-emerald-300/80">
+                  <p className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[12px] font-medium text-emerald-300/80">
                     {projects.linkLabel}
                     <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </p>

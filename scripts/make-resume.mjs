@@ -6,7 +6,7 @@ const lines = [
   ["F2", 10, 60, 730, "Ardabil, Iran  |  0992 343 5142  |  namatihadi7@gmail.com"],
   ["F2", 10, 60, 716, "github.com/hadinmt85  |  t.me/hadinmt85"],
   ["F1", 12, 60, 680, "Profile"],
-  ["F2", 10, 60, 662, "Front-end developer with 5+ years of experience building fast, accessible and"],
+  ["F2", 10, 60, 662, "Front-end developer with 3+ years of focus on building fast, accessible and"],
   ["F2", 10, 60, 648, "maintainable web interfaces. Focused on React, Next.js and design systems."],
   ["F1", 12, 60, 610, "Skills"],
   ["F2", 10, 60, 592, "React, Next.js, TypeScript, JavaScript, Tailwind CSS, CSS/SCSS,"],
@@ -16,7 +16,7 @@ const lines = [
   ["F2", 10, 60, 508, "Front-end Developer - Design studio (2021 - 2023)"],
   ["F2", 10, 60, 494, "Junior Front-end Developer - Agency (2019 - 2021)"],
   ["F1", 12, 60, 450, "Selected work"],
-  ["F2", 10, 60, 432, "Aria Sales Dashboard, Nabat Storefront, TaskFlow, Mana Holding Website"],
+  ["F2", 10, 60, 432, "Product Store, License Market Landing, Personal Portfolio (all on GitHub)"],
   ["F2", 9, 60, 80, "This is a placeholder CV. Replace public/resume.pdf with your real file."],
 ];
 

@@ -6,7 +6,7 @@ import { siteLinks } from "@/content/site";
 
 export function Footer() {
   const { t, lang } = useLanguage();
-  const year = lang === "fa" ? "۱۴۰۴" : "2026";
+  const year = lang === "fa" ? "۱۴۰۵" : "2026";
 
   return (
     <footer className="relative mt-10 border-t border-white/[0.06] py-10">
