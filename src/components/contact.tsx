@@ -25,7 +25,7 @@ function SocialLink({ social }: { social: Social }) {
       rel={external ? "noreferrer" : undefined}
       aria-label={social.label}
       title={social.label}
-      className="grid h-11 w-11 place-items-center rounded-xl border border-line bg-white/[0.04] text-muted transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/45 hover:bg-emerald-400/10 hover:text-emerald-300"
+      className="grid h-11 w-11 place-items-center rounded-xl border border-line bg-surface2 text-muted transition-all duration-300 hover:-translate-y-1 hover:border-accent/45 hover:bg-accent/10 hover:text-accent"
     >
       <Icon className="h-[18px] w-[18px]" />
     </a>
@@ -67,7 +67,7 @@ export function Contact() {
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
         <Reveal>
           <div className="gradient-border rounded-[34px] p-[1px] shadow-[0_40px_100px_-50px_rgba(16,185,129,0.6)]">
-            <div className="relative overflow-hidden rounded-[33px] bg-[#06100d]/95 px-6 py-10 sm:p-10 lg:p-14">
+            <div className="relative overflow-hidden rounded-[33px] bg-bgsoft px-6 py-10 sm:p-10 lg:p-14">
               <div
                 aria-hidden
                 className="pointer-events-none absolute -end-24 -top-24 h-64 w-64 rounded-full bg-emerald-500/15 blur-3xl"
@@ -81,7 +81,7 @@ export function Contact() {
                       const Icon = row.icon;
                       const content = (
                         <>
-                          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-emerald-400/20 bg-emerald-400/10 text-emerald-300">
+                          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-accent/20 bg-accent/10 text-accent">
                             <Icon className="h-[18px] w-[18px]" />
                           </span>
                           <span className="min-w-0">
@@ -96,14 +96,14 @@ export function Contact() {
                         <a
                           key={row.label}
                           href={row.href}
-                          className="flex items-center gap-3 rounded-2xl border border-white/[0.05] bg-white/[0.02] p-3 transition-colors hover:border-emerald-400/30 hover:bg-emerald-400/[0.05]"
+                          className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-3 transition-colors hover:border-accent/30 hover:bg-accent/[0.05]"
                         >
                           {content}
                         </a>
                       ) : (
                         <div
                           key={row.label}
-                          className="flex items-center gap-3 rounded-2xl border border-white/[0.05] bg-white/[0.02] p-3"
+                          className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-3"
                         >
                           {content}
                         </div>
@@ -122,7 +122,7 @@ export function Contact() {
                         target="_blank"
                         rel="noreferrer"
                         dir="ltr"
-                        className="ms-1 inline-flex items-center gap-1 text-[12px] text-muted transition-colors hover:text-emerald-300"
+                        className="ms-1 inline-flex items-center gap-1 text-[12px] text-muted transition-colors hover:text-accent"
                       >
                         {siteLinks.githubHandle}
                         <ArrowUpRight className="h-3 w-3" />
@@ -131,7 +131,7 @@ export function Contact() {
                   </div>
                 </div>
 
-                <div className="flex rounded-3xl border border-white/[0.07] bg-white/[0.02] p-5 sm:p-6">
+                <div className="flex rounded-3xl border border-line bg-surface p-5 sm:p-6">
                   <form onSubmit={handleSubmit} className="flex w-full flex-col gap-4">
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
@@ -184,7 +184,7 @@ export function Contact() {
                     </button>
 
                     <p className="text-center text-[11px] leading-5 text-muted/75">
-                      {sent ? <span className="text-emerald-300">{contact.form.success}</span> : contact.form.note}
+                      {sent ? <span className="text-accent">{contact.form.success}</span> : contact.form.note}
                     </p>
                   </form>
                 </div>

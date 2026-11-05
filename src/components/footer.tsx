@@ -9,7 +9,7 @@ export function Footer() {
   const year = lang === "fa" ? "۱۴۰۵" : "2026";
 
   return (
-    <footer className="relative mt-10 border-t border-white/[0.06] py-10">
+    <footer className="relative mt-10 border-t border-line py-10">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-6 px-5 sm:px-8 md:flex-row">
         <div className="flex items-center gap-3">
           <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-500 font-display text-sm font-bold text-[#04211a]">
@@ -29,13 +29,13 @@ export function Footer() {
             href={siteLinks.github}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-emerald-300"
+            className="inline-flex items-center gap-1.5 transition-colors hover:text-accent"
           >
             <Github className="h-3.5 w-3.5" />
             GitHub
             <ArrowUpRight className="h-3 w-3" />
           </a>
-          <a href="#home" className="inline-flex items-center gap-1.5 transition-colors hover:text-emerald-300">
+          <a href="#home" className="inline-flex items-center gap-1.5 transition-colors hover:text-accent">
             {t.footer.top}
             <ArrowDown className="h-3.5 w-3.5 rotate-180" />
           </a>

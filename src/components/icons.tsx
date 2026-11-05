@@ -161,3 +161,20 @@ export function Wrench(props: IconProps) {
     </svg>
   );
 }
+
+export function Sun(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4" />
+    </svg>
+  );
+}
+
+export function Moon(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M20 14.4A8.5 8.5 0 0 1 9.6 4 7.5 7.5 0 1 0 20 14.4Z" />
+    </svg>
+  );
+}

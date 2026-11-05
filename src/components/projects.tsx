@@ -83,10 +83,10 @@ export function Projects() {
               href={siteLinks.github}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-2 text-[13px] text-muted transition-colors hover:text-emerald-300"
+              className="group inline-flex items-center gap-2 text-[13px] text-muted transition-colors hover:text-accent"
             >
               <Github className="h-4 w-4" />
-              <span className="border-b border-transparent pb-0.5 transition-colors group-hover:border-emerald-400/50">
+              <span className="border-b border-transparent pb-0.5 transition-colors group-hover:border-accent/50">
                 {projects.allLabel}
               </span>
               <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -101,7 +101,7 @@ export function Projects() {
                 href={project.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group card-hover flex h-full flex-col overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.02] focus-visible:outline-emerald-400"
+                className="group card-hover flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface focus-visible:outline-accent"
               >
                 <ProjectArt project={project} index={index} />
 
@@ -110,12 +110,12 @@ export function Projects() {
                     <span className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-muted/70">
                       {project.year}
                     </span>
-                    <span className="grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-muted transition-all duration-300 group-hover:border-emerald-400/40 group-hover:bg-emerald-400/10 group-hover:text-emerald-300">
+                    <span className="grid h-9 w-9 place-items-center rounded-full border border-line bg-surface2 text-muted transition-all duration-300 group-hover:border-accent/40 group-hover:bg-accent/10 group-hover:text-accent">
                       <ArrowUpRight className="h-4 w-4" />
                     </span>
                   </div>
 
-                  <h3 className="mt-4 font-display text-lg font-bold text-ink transition-colors group-hover:text-emerald-200">
+                  <h3 className="mt-4 font-display text-lg font-bold text-ink transition-colors group-hover:text-accent">
                     {project.title}
                   </h3>
                   <p className="mt-2 text-[13px] leading-6 text-muted">{project.blurb}</p>
@@ -128,7 +128,7 @@ export function Projects() {
                     ))}
                   </div>
 
-                  <p className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[12px] font-medium text-emerald-300/80">
+                  <p className="mt-auto inline-flex items-center gap-1.5 pt-5 text-[12px] font-medium text-accent/80">
                     {projects.linkLabel}
                     <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </p>

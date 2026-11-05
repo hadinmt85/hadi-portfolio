@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk, Vazirmatn } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/language-provider";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const vazirmatn = Vazirmatn({
   subsets: ["arabic", "latin"],
@@ -52,11 +53,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="fa"
       dir="rtl"
+      data-theme="dark"
       className={`${vazirmatn.variable} ${inter.variable} ${spaceGrotesk.variable}`}
       suppressHydrationWarning
     >
       <body>
-        <LanguageProvider>{children}</LanguageProvider>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var s=localStorage.getItem("hadi-portfolio-theme");var d=window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";var t=(s==="light"||s==="dark")?s:d;document.documentElement.dataset.theme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute("content",t==="light"?"#f2f8f5":"#050908");}catch(e){document.documentElement.dataset.theme="dark";}})();`,
+          }}
+        />
+        <ThemeProvider>
+          <LanguageProvider>{children}</LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -20,7 +20,7 @@ export function Skills() {
             <SectionHeading kicker={skills.kicker} title={skills.title} desc={skills.desc} />
           </Reveal>
           <Reveal delay={120}>
-            <div className="flex items-center gap-2 self-start rounded-full border border-white/[0.07] bg-white/[0.03] px-4 py-2 text-[11.5px] text-muted">
+            <div className="flex items-center gap-2 self-start rounded-full border border-line bg-surface px-4 py-2 text-[11.5px] text-muted">
               <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-lime-400" />
               {t.hero.card.status}
             </div>
@@ -32,9 +32,9 @@ export function Skills() {
             const Icon = groupIcons[groupIndex % groupIcons.length];
             return (
               <Reveal key={group.title} delay={groupIndex * 100}>
-                <div className="card-hover h-full rounded-3xl border border-white/[0.07] bg-white/[0.025] p-6">
+                <div className="card-hover h-full rounded-3xl border border-line bg-surface p-6">
                   <div className="flex items-center gap-3">
-                    <span className="grid h-10 w-10 place-items-center rounded-xl border border-emerald-400/25 bg-emerald-400/10 text-emerald-300">
+                    <span className="grid h-10 w-10 place-items-center rounded-xl border border-accent/25 bg-accent/10 text-accent">
                       <Icon className="h-5 w-5" />
                     </span>
                     <div>

@@ -10,7 +10,7 @@ type SectionHeadingProps = {
 export function SectionHeading({ kicker, title, desc, align = "start" }: SectionHeadingProps) {
   return (
     <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
-      <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300/90">
+      <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-accent/90">
         <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
         {kicker}
       </span>
