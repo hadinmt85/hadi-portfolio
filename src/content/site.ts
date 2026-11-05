@@ -61,6 +61,7 @@ export type SiteContent = {
     desc: string;
     email: string;
     phone: string;
+    showPhone: string;
     location: string;
     form: {
       name: string;
@@ -198,7 +199,7 @@ export const site: Record<Lang, SiteContent> = {
           accent: "#a7f3d0",
         },
         {
-          title: "لندینگ لیسانس‌مارکت",
+          title: "لندینگ لایسنس‌مارکت",
           blurb: "صفحهٔ فرود فروش لایسنس و خدمات نرم‌افزاری با بخش‌های هیرو، پیشنهادها، دسته‌بندی محصولات، وبلاگ و فرم ورود؛ ساخته‌شده با shadcn/ui.",
           tags: ["Next.js", "TypeScript", "shadcn/ui", "Embla"],
           year: "۱۴۰۵",
@@ -223,6 +224,7 @@ export const site: Record<Lang, SiteContent> = {
       desc: "برای همکاری، مشاوره یا حتی یک گفت‌وگوی کوتاه دربارهٔ فرانت‌اند پیام بده. معمولاً کمتر از یک روز کاری پاسخ می‌دهم.",
       email: EMAIL,
       phone: PHONE,
+      showPhone: "نمایش شماره",
       location: "اردبیل، ایران",
       form: {
         name: "نام",
@@ -370,6 +372,7 @@ export const site: Record<Lang, SiteContent> = {
       desc: "Drop me a line about a project, a collaboration, or just to talk front-end. I usually reply within one business day.",
       email: EMAIL,
       phone: PHONE,
+      showPhone: "Show number",
       location: "Ardabil, Iran",
       form: {
         name: "Name",

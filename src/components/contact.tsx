@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
@@ -13,6 +13,42 @@ const socialIcons = {
   telegram: Telegram,
   mail: Mail,
 };
+
+function PhoneRow({ phone, showLabel }: { phone: string; showLabel: string }) {
+  const [visible, setVisible] = useState(false);
+  const digits = phone.replace(/\D/g, "");
+  const masked = `${digits.slice(0, 4)} ••• ${digits.slice(-4)}`;
+
+  return (
+    <div className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-3 transition-colors hover:border-accent/30 hover:bg-accent/[0.05]">
+      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-accent/20 bg-accent/10 text-accent">
+        <Phone className="h-[18px] w-[18px]" />
+      </span>
+      <span className="min-w-0">
+        {visible ? (
+          <a
+            href={`tel:${digits}`}
+            dir="ltr"
+            className="block truncate text-[13.5px] text-ink/90 transition-colors hover:text-accent"
+          >
+            {phone}
+          </a>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setVisible(true)}
+            className="group flex items-center gap-2 text-[13.5px] text-muted transition-colors hover:text-accent"
+          >
+            <span dir="ltr" className="tabular-nums">
+              {masked}
+            </span>
+            <span className="text-[11px] text-accent/80 underline-offset-2 group-hover:underline">{showLabel}</span>
+          </button>
+        )}
+      </span>
+    </div>
+  );
+}
 
 function SocialLink({ social }: { social: Social }) {
   const Icon = socialIcons[social.icon];
@@ -52,13 +88,6 @@ export function Contact() {
 
   const rows = [
     { icon: Mail, label: contact.email, href: `mailto:${contact.email}`, value: contact.email, ltr: true },
-    {
-      icon: Phone,
-      label: contact.phone,
-      href: `tel:${contact.phone.replace(/\s/g, "")}`,
-      value: contact.phone,
-      ltr: true,
-    },
     { icon: MapPin, label: contact.location, href: undefined, value: contact.location, ltr: false },
   ];
 
@@ -77,7 +106,7 @@ export function Contact() {
                   <SectionHeading kicker={contact.kicker} title={contact.title} desc={contact.desc} />
 
                   <div className="mt-8 space-y-3">
-                    {rows.map((row) => {
+                    {rows.map((row, index) => {
                       const Icon = row.icon;
                       const content = (
                         <>
@@ -92,21 +121,24 @@ export function Contact() {
                         </>
                       );
 
-                      return row.href ? (
+                      const item = row.href ? (
                         <a
-                          key={row.label}
                           href={row.href}
                           className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-3 transition-colors hover:border-accent/30 hover:bg-accent/[0.05]"
                         >
                           {content}
                         </a>
                       ) : (
-                        <div
-                          key={row.label}
-                          className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-3"
-                        >
+                        <div className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-3">
                           {content}
                         </div>
+                      );
+
+                      return (
+                        <Fragment key={row.label}>
+                          {item}
+                          {index === 0 && <PhoneRow phone={contact.phone} showLabel={contact.showPhone} />}
+                        </Fragment>
                       );
                     })}
                   </div>
