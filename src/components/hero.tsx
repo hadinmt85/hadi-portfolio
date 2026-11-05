@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/components/language-provider";
 import { Reveal } from "@/components/reveal";
+import { Avatar } from "@/components/avatar";
 import { ArrowDown, ArrowUpRight, Download, MapPin } from "@/components/icons";
 
 function ProfileCard() {
@@ -58,8 +59,8 @@ function ProfileCard() {
 
       <div className="relative rounded-[30px] border border-line bg-bgsoft p-6 shadow-card backdrop-blur-xl">
         <div className="flex items-center gap-4">
-          <div className="relative grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-emerald-400 via-teal-400 to-cyan-500 font-display text-xl font-extrabold text-[#04211a]">
-            HN
+          <div className="relative shrink-0">
+            <Avatar alt={t.hero.name} size={64} rounded="rounded-2xl" priority />
             <span className="absolute -bottom-1 -end-1 grid h-5 w-5 place-items-center rounded-full border-2 border-bgsoft bg-emerald-400">
               <span className="h-1.5 w-1.5 rounded-full bg-[#04211a]" />
             </span>

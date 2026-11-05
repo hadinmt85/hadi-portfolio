@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/components/language-provider";
+import { Avatar } from "@/components/avatar";
 import { ArrowDown, ArrowUpRight, Github } from "@/components/icons";
 import { siteLinks } from "@/content/site";
 
@@ -12,9 +13,7 @@ export function Footer() {
     <footer className="relative mt-10 border-t border-line py-10">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-6 px-5 sm:px-8 md:flex-row">
         <div className="flex items-center gap-3">
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-500 font-display text-sm font-bold text-[#04211a]">
-            HN
-          </span>
+          <Avatar alt={t.hero.name} size={40} />
           <div>
             <p className="font-display text-sm font-semibold text-ink">{t.hero.name}</p>
             <p className="text-[11.5px] text-muted">{t.footer.tagline}</p>

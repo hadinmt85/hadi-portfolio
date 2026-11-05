@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 import { useTheme } from "@/components/theme-provider";
+import { Avatar } from "@/components/avatar";
 import { Close, Globe, Menu, Moon, Sun } from "@/components/icons";
 
 export function Nav() {
@@ -51,9 +52,12 @@ export function Nav() {
           onClick={() => setOpen(false)}
           aria-label={lang === "fa" ? "هادی نعمتی — صفحه اصلی" : "Hadi Nemati — home"}
         >
-          <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-500 font-display text-sm font-bold text-[#04211a] shadow-[0_10px_24px_-12px_rgba(52,211,153,0.9)] transition-transform duration-300 group-hover:-rotate-6">
-            HN
-          </span>
+          <Avatar
+            alt={t.hero.name}
+            size={40}
+            priority
+            className="shadow-[0_10px_24px_-12px_rgba(52,211,153,0.9)] transition-transform duration-300 group-hover:-rotate-6"
+          />
           <span className="hidden flex-col leading-tight sm:flex">
             <span className="font-display text-sm font-semibold text-ink">{t.hero.name}</span>
             <span className="text-[11px] text-muted">{t.hero.role}</span>
