@@ -1,0 +1,6 @@
+# Generated static builds of the demo projects (not portfolio source code).
+# Excluding them keeps GitHub's language stats focused on the TypeScript source.
+public/demos/** linguist-vendored linguist-generated
+
+# Lockfiles are generated, too.
+package-lock.json linguist-generated
