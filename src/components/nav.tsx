@@ -81,6 +81,16 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggle}
+            aria-label={lang === "fa" ? "تغییر حالت روشن و تیره" : "Toggle light and dark mode"}
+            title={lang === "fa" ? "حالت روشن / تیره" : "Light / dark mode"}
+            className="grid h-9 w-9 place-items-center rounded-full border border-line bg-surface2 text-muted transition-colors hover:border-accent/40 hover:text-accent"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
+
           <div
             className="flex items-center rounded-full border border-line bg-surface2 p-0.5"
             role="group"
@@ -107,16 +117,6 @@ export function Nav() {
               EN
             </button>
           </div>
-
-          <button
-            type="button"
-            onClick={toggle}
-            aria-label={lang === "fa" ? "تغییر حالت روشن و تیره" : "Toggle light and dark mode"}
-            title={lang === "fa" ? "حالت روشن / تیره" : "Light / dark mode"}
-            className="grid h-9 w-9 place-items-center rounded-full border border-line bg-surface2 text-muted transition-colors hover:border-accent/40 hover:text-accent"
-          >
-            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </button>
 
           <Globe className="hidden h-4 w-4 text-muted lg:block" />
 
