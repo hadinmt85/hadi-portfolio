@@ -25,16 +25,22 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://hadinemati.ir"),
   title: "هادی نعمتی | توسعه‌دهنده فرانت‌اند",
   description:
     "هادی نعمتی، توسعه‌دهنده فرانت‌اند. ساخت رابط‌های کاربری سریع، در دسترس و زیبا با React و Next.js.",
   keywords: ["front-end", "react", "next.js", "typescript", "portfolio", "هادی نعمتی"],
   authors: [{ name: "Hadi Nemati" }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "هادی نعمتی | توسعه‌دهنده فرانت‌اند",
     description: "رابط‌های کاربری سریع، در دسترس و زیبا با React و Next.js.",
     type: "website",
     locale: "fa_IR",
+    url: "/",
+    siteName: "هادی نعمتی",
   },
   twitter: {
     card: "summary_large_image",
