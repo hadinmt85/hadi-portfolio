@@ -23,6 +23,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       description: project.blurb,
       url: `/projects/${project.slug}`,
       type: "article",
+      images: [
+        {
+          url: "/og.png",
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
     },
   };
 }
