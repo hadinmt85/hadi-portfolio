@@ -102,10 +102,10 @@ function EmailRow({
         <Mail className="h-[18px] w-[18px]" />
       </span>
       <button type="button" onClick={handleCopy} className="min-w-0 flex-1 text-start">
-        <span dir="ltr" className="block truncate text-[13.5px] text-ink/90">
+        <span dir="ltr" className="block truncate text-end text-[13.5px] text-ink/90">
           {email}
         </span>
-        <span className="mt-0.5 flex items-center gap-1 text-[10.5px] text-muted">
+        <span className="mt-0.5 flex items-center justify-start gap-1 text-[10.5px] text-muted">
           {copied ? (
             <>
               <Check className="h-3 w-3 text-accent" />
