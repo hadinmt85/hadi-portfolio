@@ -4,12 +4,14 @@ export type Skill = { name: string; level: number };
 export type SkillGroup = { title: string; caption: string; skills: Skill[] };
 export type Highlight = { title: string; desc: string };
 export type Stat = { value: string; label: string };
+export type ProjectImage = { src: string; width: number; height: number };
 export type Project = {
   title: string;
   blurb: string;
   tags: string[];
   year: string;
   href: string;
+  image: ProjectImage;
   gradient: string;
   accent: string;
 };
@@ -85,6 +87,12 @@ export type SiteContent = {
 
 const EMAIL = "namatihadi7@gmail.com";
 const PHONE = "0992 343 5142";
+
+const PROJECT_IMAGES = {
+  store: { src: "/store.png", width: 1583, height: 2113 },
+  lisens: { src: "/lisens.png", width: 1583, height: 7444 },
+  portfolio: { src: "/portfolio.png", width: 1583, height: 4285 },
+} satisfies Record<string, ProjectImage>;
 
 export const siteLinks = {
   github: "https://github.com/hadinmt85",
@@ -195,6 +203,7 @@ export const site: Record<Lang, SiteContent> = {
           tags: ["Next.js", "TypeScript", "Tailwind", "REST API"],
           year: "۱۴۰۵",
           href: "https://github.com/hadinmt85/API-product-store",
+          image: PROJECT_IMAGES.store,
           gradient: "linear-gradient(135deg, #04211c 0%, #0f766e 55%, #0891b2 100%)",
           accent: "#a7f3d0",
         },
@@ -204,6 +213,7 @@ export const site: Record<Lang, SiteContent> = {
           tags: ["Next.js", "TypeScript", "shadcn/ui", "Embla"],
           year: "۱۴۰۵",
           href: "https://github.com/hadinmt85/license-market",
+          image: PROJECT_IMAGES.lisens,
           gradient: "linear-gradient(135deg, #041f1c 0%, #115e59 50%, #15803d 100%)",
           accent: "#bbf7d0",
         },
@@ -213,6 +223,7 @@ export const site: Record<Lang, SiteContent> = {
           tags: ["Next.js", "TypeScript", "Tailwind", "i18n"],
           year: "۱۴۰۵",
           href: "https://github.com/hadinmt85/hadi-portfolio",
+          image: PROJECT_IMAGES.portfolio,
           gradient: "linear-gradient(135deg, #04211f 0%, #0e7490 55%, #4d7c0f 100%)",
           accent: "#d9f99d",
         },
@@ -343,6 +354,7 @@ export const site: Record<Lang, SiteContent> = {
           tags: ["Next.js", "TypeScript", "Tailwind", "REST API"],
           year: "2026",
           href: "https://github.com/hadinmt85/API-product-store",
+          image: PROJECT_IMAGES.store,
           gradient: "linear-gradient(135deg, #04211c 0%, #0f766e 55%, #0891b2 100%)",
           accent: "#a7f3d0",
         },
@@ -352,6 +364,7 @@ export const site: Record<Lang, SiteContent> = {
           tags: ["Next.js", "TypeScript", "shadcn/ui", "Embla"],
           year: "2026",
           href: "https://github.com/hadinmt85/license-market",
+          image: PROJECT_IMAGES.lisens,
           gradient: "linear-gradient(135deg, #041f1c 0%, #115e59 50%, #15803d 100%)",
           accent: "#bbf7d0",
         },
@@ -361,6 +374,7 @@ export const site: Record<Lang, SiteContent> = {
           tags: ["Next.js", "TypeScript", "Tailwind", "i18n"],
           year: "2026",
           href: "https://github.com/hadinmt85/hadi-portfolio",
+          image: PROJECT_IMAGES.portfolio,
           gradient: "linear-gradient(135deg, #04211f 0%, #0e7490 55%, #4d7c0f 100%)",
           accent: "#d9f99d",
         },

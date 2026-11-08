@@ -181,6 +181,23 @@ body {
   background: var(--c-scrollbar-hover);
 }
 
+.project-shot {
+  scrollbar-width: thin;
+  scrollbar-color: var(--c-scrollbar) transparent;
+}
+
+.project-shot::-webkit-scrollbar {
+  width: 6px;
+}
+.project-shot::-webkit-scrollbar-track {
+  background: transparent;
+}
+.project-shot::-webkit-scrollbar-thumb {
+  background: var(--c-scrollbar);
+  border: none;
+  border-radius: 999px;
+}
+
 /* ---------- background scene ---------- */
 
 .site-bg {
