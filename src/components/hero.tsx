@@ -131,7 +131,7 @@ function ProfileCard() {
 
 export function Hero() {
   const { t } = useLanguage();
-  const marquee = [...t.hero.marquee, ...t.hero.marquee, ...t.hero.marquee, ...t.hero.marquee];
+  const marqueeGroup = [...t.hero.marquee, ...t.hero.marquee];
 
   return (
     <section id="home" data-section className="relative pt-32 pb-14 sm:pt-40 lg:pb-20">
@@ -195,11 +195,15 @@ export function Hero() {
 
         <div className="marquee-mask mt-20 overflow-hidden border-y border-line py-4">
           <div className="marquee-track items-center">
-            {marquee.map((item, index) => (
-              <span key={`${item}-${index}`} className="flex shrink-0 items-center">
-                <span className="whitespace-nowrap px-6 font-display text-sm font-medium text-muted/70">{item}</span>
-                <span className="h-1 w-1 rounded-full bg-accent/40" />
-              </span>
+            {[0, 1].map((group) => (
+              <div key={group} className="flex shrink-0 items-center" aria-hidden={group === 1}>
+                {marqueeGroup.map((item, index) => (
+                  <span key={`${item}-${index}`} className="flex shrink-0 items-center">
+                    <span className="whitespace-nowrap px-6 font-display text-sm font-medium text-muted/70">{item}</span>
+                    <span className="h-1 w-1 rounded-full bg-accent/40" />
+                  </span>
+                ))}
+              </div>
             ))}
           </div>
         </div>
