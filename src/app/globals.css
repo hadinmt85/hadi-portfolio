@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* The demo builds under public/ are standalone apps; never let Tailwind scan
+   their bundled CSS/JS for class names. */
+@source not "../../public/demos";
+
 @theme inline {
   --font-sans: var(--font-head), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-head), ui-sans-serif, system-ui, sans-serif;
@@ -450,6 +454,27 @@ html[data-theme="light"] .btn-primary {
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 75%);
   -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 20%, transparent 75%);
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .resume-sheet {
+    box-shadow: none !important;
+    max-width: none !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -6,11 +6,13 @@ export type Highlight = { title: string; desc: string };
 export type Stat = { value: string; label: string };
 export type ProjectImage = { src: string; width: number; height: number };
 export type Project = {
+  slug: string;
   title: string;
   blurb: string;
   tags: string[];
   year: string;
   href: string;
+  demo?: string;
   image: ProjectImage;
   gradient: string;
   accent: string;
@@ -55,6 +57,7 @@ export type SiteContent = {
     desc: string;
     linkLabel: string;
     allLabel: string;
+    caseLabel: string;
     items: Project[];
   };
   contact: {
@@ -75,6 +78,9 @@ export type SiteContent = {
       submit: string;
       note: string;
       success: string;
+      sending: string;
+      error: string;
+      fallback: string;
     };
     socials: Social[];
   };
@@ -196,6 +202,7 @@ export const site: Record<Lang, SiteContent> = {
       desc: "پروژه‌های متن‌باز من؛ کد همه‌شان روی گیت‌هاب در دسترس است.",
       linkLabel: "مشاهده در گیت‌هاب",
       allLabel: "همهٔ پروژه‌ها در گیت‌هاب",
+      caseLabel: "مطالعهٔ بیشتر",
       items: [
         {
           title: "فروشگاه محصولات",
@@ -204,6 +211,8 @@ export const site: Record<Lang, SiteContent> = {
           year: "۱۴۰۵",
           href: "https://github.com/hadinmt85/API-product-store",
           image: PROJECT_IMAGES.store,
+          slug: "product-store",
+          demo: "/demos/store/",
           gradient: "linear-gradient(135deg, #04211c 0%, #0f766e 55%, #0891b2 100%)",
           accent: "#a7f3d0",
         },
@@ -214,6 +223,8 @@ export const site: Record<Lang, SiteContent> = {
           year: "۱۴۰۵",
           href: "https://github.com/hadinmt85/license-market",
           image: PROJECT_IMAGES.lisens,
+          slug: "license-market",
+          demo: "/demos/license/",
           gradient: "linear-gradient(135deg, #041f1c 0%, #115e59 50%, #15803d 100%)",
           accent: "#bbf7d0",
         },
@@ -224,6 +235,7 @@ export const site: Record<Lang, SiteContent> = {
           year: "۱۴۰۵",
           href: "https://github.com/hadinmt85/hadi-portfolio",
           image: PROJECT_IMAGES.portfolio,
+          slug: "portfolio",
           gradient: "linear-gradient(135deg, #04211f 0%, #0e7490 55%, #4d7c0f 100%)",
           accent: "#d9f99d",
         },
@@ -245,8 +257,11 @@ export const site: Record<Lang, SiteContent> = {
         message: "پیام",
         messagePlaceholder: "دربارهٔ پروژه‌ات بنویس…",
         submit: "ارسال پیام",
-        note: "این فرم پیام را در برنامهٔ ایمیل شما باز می‌کند.",
-        success: "برنامهٔ ایمیل باز شد. اگر باز نشد، مستقیم به من ایمیل بزن.",
+        note: "پیام مستقیم برای من ارسال می‌شود؛ اگر سرویس در دسترس نبود، برنامهٔ ایمیل باز می‌شود.",
+        success: "پیامت رسید. ممنون! معمولاً کمتر از یک روز کاری جواب می‌دهم.",
+        sending: "در حال ارسال…",
+        error: "ارسال نشد. لطفاً دوباره تلاش کن یا مستقیم به namatihadi7@gmail.com ایمیل بزن.",
+        fallback: "برنامهٔ ایمیل باز شد؛ اگر باز نشد مستقیم به namatihadi7@gmail.com ایمیل بزن.",
       },
       socials: [github, telegram, mail],
     },
@@ -347,6 +362,7 @@ export const site: Record<Lang, SiteContent> = {
       desc: "My open-source projects — all the code is available on GitHub.",
       linkLabel: "View on GitHub",
       allLabel: "All projects on GitHub",
+      caseLabel: "Read case study",
       items: [
         {
           title: "Product Store",
@@ -355,6 +371,8 @@ export const site: Record<Lang, SiteContent> = {
           year: "2026",
           href: "https://github.com/hadinmt85/API-product-store",
           image: PROJECT_IMAGES.store,
+          slug: "product-store",
+          demo: "/demos/store/",
           gradient: "linear-gradient(135deg, #04211c 0%, #0f766e 55%, #0891b2 100%)",
           accent: "#a7f3d0",
         },
@@ -365,6 +383,8 @@ export const site: Record<Lang, SiteContent> = {
           year: "2026",
           href: "https://github.com/hadinmt85/license-market",
           image: PROJECT_IMAGES.lisens,
+          slug: "license-market",
+          demo: "/demos/license/",
           gradient: "linear-gradient(135deg, #041f1c 0%, #115e59 50%, #15803d 100%)",
           accent: "#bbf7d0",
         },
@@ -375,6 +395,7 @@ export const site: Record<Lang, SiteContent> = {
           year: "2026",
           href: "https://github.com/hadinmt85/hadi-portfolio",
           image: PROJECT_IMAGES.portfolio,
+          slug: "portfolio",
           gradient: "linear-gradient(135deg, #04211f 0%, #0e7490 55%, #4d7c0f 100%)",
           accent: "#d9f99d",
         },
@@ -396,8 +417,11 @@ export const site: Record<Lang, SiteContent> = {
         message: "Message",
         messagePlaceholder: "Tell me about your project…",
         submit: "Send message",
-        note: "This form opens the message in your email app.",
-        success: "Your email app should be open. If not, mail me directly.",
+        note: "Your message goes straight to me; if the service is unavailable, your email app opens instead.",
+        success: "Got it — thanks! I usually reply within one business day.",
+        sending: "Sending…",
+        error: "Could not send. Please try again or email namatihadi7@gmail.com directly.",
+        fallback: "Your email app should be open. If not, email namatihadi7@gmail.com directly.",
       },
       socials: [github, telegram, mail],
     },

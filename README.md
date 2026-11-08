@@ -41,4 +41,28 @@ src/
 
 ## استقرار
 
-ساده‌ترین راه [Vercel](https://vercel.com/new) است: ریپازیتوری را وصل کنید و Deploy بزنید. هیچ متغیر محیطی لازم نیست.
+ساده‌ترین راه [Vercel](https://vercel.com/new) است: ریپازیتوری را وصل کنید و Deploy بزنید.
+
+### فرم تماس
+
+فرم به `POST /api/contact` می‌رود. برای فعال‌شدن ارسال، یکی از این دو را در Environment Variables پروژه تنظیم کنید:
+
+| روش | متغیرها |
+|---|---|
+| تلگرام | `TELEGRAM_BOT_TOKEN` و `TELEGRAM_CHAT_ID` |
+| ایمیل (Resend) | `RESEND_API_KEY` و اختیاری `CONTACT_TO_EMAIL` و `CONTACT_FROM_EMAIL` |
+
+اگر هیچ‌کدام تنظیم نشده باشد، فرم به‌صورت خودکار به `mailto:` برمی‌گردد و پیام در برنامهٔ ایمیل باز می‌شود.
+
+### رزومه
+
+صفحهٔ `/resume` نسخهٔ چاپی دارد (`Ctrl+P` → Save as PDF). فایل `public/resume.pdf` با همان صفحه تولید می‌شود:
+
+```bash
+npm run build && npm start
+msedge --headless=new --no-pdf-header-footer --print-to-pdf=public/resume.pdf --virtual-time-budget=12000 http://localhost:3000/resume
+```
+
+### دموی پروژه‌ها
+
+نسخهٔ استاتیک پروژه‌های نمونه در `public/demos/` قرار دارد و از مسیرهای `/demos/store/` و `/demos/license/` سرو می‌شود.

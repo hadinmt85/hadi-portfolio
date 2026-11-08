@@ -71,19 +71,47 @@ function SocialLink({ social }: { social: Social }) {
 export function Contact() {
   const { t } = useLanguage();
   const { contact } = t;
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "fallback" | "error">("idle");
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const name = String(formData.get("name") ?? "");
-    const email = String(formData.get("email") ?? "");
-    const message = String(formData.get("message") ?? "");
+    if (status === "sending") return;
 
-    const subject = `New message from ${name || "your website"}`;
-    const body = `${message}\n\n—\n${name}\n${email}`;
-    window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+    const company = String(formData.get("company") ?? "");
+
+    setStatus("sending");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ name, email, message, company }),
+      });
+
+      if (response.ok) {
+        form.reset();
+        setStatus("ok");
+        return;
+      }
+
+      // No mail provider configured yet: fall back to the visitor's email app.
+      if (response.status === 501) {
+        const subject = `New message from ${name || "your website"}`;
+        const body = `${message}\n\n—\n${name}\n${email}`;
+        window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        setStatus("fallback");
+        return;
+      }
+
+      setStatus("error");
+    } catch {
+      setStatus("error");
+    }
   };
 
   const rows = [
@@ -210,13 +238,30 @@ export function Contact() {
                       />
                     </div>
 
-                    <button type="submit" className="btn btn-primary w-full">
-                      {contact.form.submit}
+                    <div className="hidden" aria-hidden="true">
+                      <label htmlFor="company">Company</label>
+                      <input id="company" name="company" tabIndex={-1} autoComplete="off" />
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={status === "sending"}
+                      className="btn btn-primary w-full disabled:cursor-not-allowed disabled:opacity-70"
+                    >
+                      {status === "sending" ? contact.form.sending : contact.form.submit}
                       <ArrowUpRight className="h-4 w-4" />
                     </button>
 
                     <p className="text-center text-[11px] leading-5 text-muted/75">
-                      {sent ? <span className="text-accent">{contact.form.success}</span> : contact.form.note}
+                      {status === "ok" ? (
+                        <span className="text-accent">{contact.form.success}</span>
+                      ) : status === "fallback" ? (
+                        <span className="text-accent">{contact.form.fallback}</span>
+                      ) : status === "error" ? (
+                        <span className="text-red-400">{contact.form.error}</span>
+                      ) : (
+                        contact.form.note
+                      )}
                     </p>
                   </form>
                 </div>

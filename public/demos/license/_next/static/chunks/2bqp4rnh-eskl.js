@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,11755,e=>{"use strict";var t=e.i(43476),l=e.i(71645);e.s(["default",0,function(){let[e,o]=(0,l.useState)(!0);return(0,t.jsxs)(t.Fragment,{children:[e&&(0,t.jsx)("p",{children:"Hello World"}),(0,t.jsx)("button",{onClick:()=>o(e=>!e),children:e?"close":"show"})]})}])}]);

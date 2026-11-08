@@ -41,11 +41,20 @@ export const metadata: Metadata = {
     locale: "fa_IR",
     url: "/",
     siteName: "هادی نعمتی",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "هادی نعمتی — توسعه‌دهندهٔ فرانت‌اند",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "هادی نعمتی | توسعه‌دهنده فرانت‌اند",
     description: "رابط‌های کاربری سریع، در دسترس و زیبا با React و Next.js.",
+    images: ["/og.png"],
   },
 };
 
