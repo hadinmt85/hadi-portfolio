@@ -53,6 +53,12 @@ html[data-theme="dark"] {
   --c-blob-a: rgba(16, 185, 129, 0.22);
   --c-blob-b: rgba(34, 211, 238, 0.18);
   --c-blob-c: rgba(163, 230, 53, 0.1);
+  --c-bg-top: rgba(16, 185, 129, 0.2);
+  --c-bg-1: #061a15;
+  --c-bg-2: #040b09;
+  --c-bg-3: #020505;
+  --c-bg-cyan: rgba(34, 211, 238, 0.16);
+  --c-beam: rgba(110, 231, 183, 0.32);
   --grad-a: #6ee7b7;
   --grad-b: #22d3ee;
   --grad-c: #a3e635;
@@ -87,6 +93,12 @@ html[data-theme="light"] {
   --c-blob-a: rgba(16, 185, 129, 0.16);
   --c-blob-b: rgba(34, 211, 238, 0.14);
   --c-blob-c: rgba(163, 230, 53, 0.16);
+  --c-bg-top: rgba(16, 185, 129, 0.14);
+  --c-bg-1: #f8fdfa;
+  --c-bg-2: #eef7f2;
+  --c-bg-3: #e6f1ec;
+  --c-bg-cyan: rgba(34, 211, 238, 0.1);
+  --c-beam: rgba(5, 150, 105, 0.2);
   --grad-a: #059669;
   --grad-b: #0891b2;
   --grad-c: #4d7c0f;
@@ -237,54 +249,45 @@ body {
   z-index: -10;
   overflow: hidden;
   pointer-events: none;
-  background: var(--c-bg);
+  background:
+    linear-gradient(180deg, var(--c-bg-top) 0%, transparent 45%),
+    linear-gradient(160deg, var(--c-bg-1) 0%, var(--c-bg-2) 45%, var(--c-bg-3) 100%);
   transition: background-color 0.35s ease;
 }
 
+/* Fine film grain, generated in CSS/SVG (no image request). */
 .site-bg::before {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 70% 50% at 15% -10%, var(--c-glow-1), transparent 60%),
-    radial-gradient(ellipse 60% 45% at 90% 5%, var(--c-glow-2), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 60% 100%, var(--c-glow-3), transparent 65%);
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  opacity: 0.16;
+  mix-blend-mode: overlay;
 }
 
-.blob-a,
-.blob-b,
-.blob-c {
+/* Soft cyan light in the corner. */
+.site-bg::after {
+  content: "";
   position: absolute;
-  border-radius: 999px;
-  filter: blur(90px);
-  animation: drift 18s ease-in-out infinite;
-  will-change: transform;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(60% 45% at 80% 15%, var(--c-bg-cyan), transparent 65%);
 }
 
-.blob-a {
-  left: -10%;
-  top: 8%;
-  width: 380px;
-  height: 380px;
-  background: var(--c-blob-a);
+/* Thin luminous line. */
+.site-beam {
+  position: absolute;
+  top: 58%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c-beam), transparent);
 }
 
-.blob-b {
-  right: -8%;
-  top: 26%;
-  width: 340px;
-  height: 340px;
-  background: var(--c-blob-b);
-  animation-delay: -6s;
-}
-
-.blob-c {
-  bottom: 4%;
-  left: 30%;
-  width: 300px;
-  height: 300px;
-  background: var(--c-blob-c);
-  animation-delay: -11s;
+html[data-theme="light"] .site-bg::before {
+  opacity: 0.1;
+  mix-blend-mode: multiply;
 }
 
 /* ---------- utilities ---------- */
@@ -521,9 +524,6 @@ html[dir="rtl"] .marquee-track {
   .skill-fill {
     width: var(--level, 0%);
   }
-  .blob-a,
-  .blob-b,
-  .blob-c,
   .marquee-track {
     animation: none !important;
   }
