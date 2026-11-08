@@ -254,10 +254,18 @@ body {
   overflow: hidden;
   pointer-events: none;
   background:
-    repeating-radial-gradient(circle at 50% 118%, var(--c-ring) 0 1px, transparent 1px 56px),
     radial-gradient(45% 45% at 50% 112%, var(--c-ring-glow), transparent 70%),
     linear-gradient(180deg, var(--c-bg-1) 0%, var(--c-bg-2) 55%, var(--c-bg-3) 100%);
   transition: background-color 0.35s ease;
+}
+
+/* Anti-aliased rings, drawn as SVG so the curves never look pixelated. */
+.site-rings {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 /* Soft vignette so the rings fade into the page edges. */
