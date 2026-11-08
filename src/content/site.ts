@@ -98,9 +98,9 @@ const EMAIL = "namatihadi7@gmail.com";
 const PHONE = "0992 343 5142";
 
 const PROJECT_IMAGES = {
-  store: { src: "/store.png", width: 1583, height: 2113 },
-  lisens: { src: "/lisens.png", width: 1583, height: 7444 },
-  portfolio: { src: "/portfolio.png", width: 1583, height: 4285 },
+  store: { src: "/store.webp", width: 1200, height: 1602 },
+  lisens: { src: "/lisens.webp", width: 1200, height: 5643 },
+  portfolio: { src: "/portfolio.webp", width: 1200, height: 3248 },
 } satisfies Record<string, ProjectImage>;
 
 export const siteLinks = {
