@@ -57,6 +57,9 @@ html[data-theme="dark"] {
   --c-bg-1: #061a15;
   --c-bg-2: #040b09;
   --c-bg-3: #020505;
+  --c-ring: rgba(52, 211, 153, 0.14);
+  --c-ring-glow: rgba(16, 185, 129, 0.35);
+  --c-bg-vignette: rgba(2, 6, 5, 0.85);
   --c-bg-cyan: rgba(34, 211, 238, 0.16);
   --grad-a: #6ee7b7;
   --grad-b: #22d3ee;
@@ -96,6 +99,9 @@ html[data-theme="light"] {
   --c-bg-1: #f8fdfa;
   --c-bg-2: #eef7f2;
   --c-bg-3: #e6f1ec;
+  --c-ring: rgba(5, 150, 105, 0.1);
+  --c-ring-glow: rgba(16, 185, 129, 0.14);
+  --c-bg-vignette: rgba(255, 255, 255, 0.65);
   --c-bg-cyan: rgba(34, 211, 238, 0.1);
   --grad-a: #059669;
   --grad-b: #0891b2;
@@ -248,34 +254,19 @@ body {
   overflow: hidden;
   pointer-events: none;
   background:
-    linear-gradient(180deg, var(--c-bg-top) 0%, transparent 45%),
-    linear-gradient(160deg, var(--c-bg-1) 0%, var(--c-bg-2) 45%, var(--c-bg-3) 100%);
+    repeating-radial-gradient(circle at 50% 118%, var(--c-ring) 0 1px, transparent 1px 56px),
+    radial-gradient(45% 45% at 50% 112%, var(--c-ring-glow), transparent 70%),
+    linear-gradient(180deg, var(--c-bg-1) 0%, var(--c-bg-2) 55%, var(--c-bg-3) 100%);
   transition: background-color 0.35s ease;
 }
 
-/* Fine film grain, generated in CSS/SVG (no image request). */
-.site-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-  opacity: 0.16;
-  mix-blend-mode: overlay;
-}
-
-/* Soft cyan light in the corner. */
+/* Soft vignette so the rings fade into the page edges. */
 .site-bg::after {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(60% 45% at 80% 15%, var(--c-bg-cyan), transparent 65%);
-}
-
-html[data-theme="light"] .site-bg::before {
-  opacity: 0.1;
-  mix-blend-mode: multiply;
+  background: radial-gradient(95% 75% at 50% 0%, transparent 40%, var(--c-bg-vignette) 100%);
 }
 
 /* ---------- utilities ---------- */
