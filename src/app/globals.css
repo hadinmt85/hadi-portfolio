@@ -58,7 +58,6 @@ html[data-theme="dark"] {
   --c-bg-2: #040b09;
   --c-bg-3: #020505;
   --c-bg-cyan: rgba(34, 211, 238, 0.16);
-  --c-beam: rgba(110, 231, 183, 0.32);
   --grad-a: #6ee7b7;
   --grad-b: #22d3ee;
   --grad-c: #a3e635;
@@ -98,7 +97,6 @@ html[data-theme="light"] {
   --c-bg-2: #eef7f2;
   --c-bg-3: #e6f1ec;
   --c-bg-cyan: rgba(34, 211, 238, 0.1);
-  --c-beam: rgba(5, 150, 105, 0.2);
   --grad-a: #059669;
   --grad-b: #0891b2;
   --grad-c: #4d7c0f;
@@ -273,16 +271,6 @@ body {
   inset: 0;
   pointer-events: none;
   background: radial-gradient(60% 45% at 80% 15%, var(--c-bg-cyan), transparent 65%);
-}
-
-/* Thin luminous line. */
-.site-beam {
-  position: absolute;
-  top: 58%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--c-beam), transparent);
 }
 
 html[data-theme="light"] .site-bg::before {
