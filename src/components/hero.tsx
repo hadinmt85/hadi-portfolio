@@ -131,7 +131,7 @@ function ProfileCard() {
 
 export function Hero() {
   const { t } = useLanguage();
-  const marquee = [...t.hero.marquee, ...t.hero.marquee];
+  const marquee = [...t.hero.marquee, ...t.hero.marquee, ...t.hero.marquee, ...t.hero.marquee];
 
   return (
     <section id="home" data-section className="relative pt-32 pb-14 sm:pt-40 lg:pb-20">
