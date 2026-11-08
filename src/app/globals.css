@@ -398,7 +398,7 @@ html[data-theme="light"] .btn-primary {
     .reveal {
       animation: reveal-in linear both;
       animation-timeline: view();
-      animation-range: entry 5% entry 45%;
+      animation-range: entry 0% entry 22%;
     }
   }
 }
@@ -406,7 +406,7 @@ html[data-theme="light"] .btn-primary {
 @keyframes reveal-in {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
