@@ -97,6 +97,7 @@ export function ProjectCaseStudy({ slug }: { slug: string }) {
             tabIndex={0}
             role="group"
             aria-label={project.title}
+            data-lenis-prevent
           >
             <Image
               src={project.image.src}

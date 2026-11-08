@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, Vazirmatn } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/components/language-provider";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SmoothScroll } from "@/components/smooth-scroll";
 
 const vazirmatn = Vazirmatn({
   subsets: ["arabic", "latin"],
@@ -79,7 +80,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         <ThemeProvider>
-          <LanguageProvider>{children}</LanguageProvider>
+          <LanguageProvider>
+            <SmoothScroll />
+            {children}
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

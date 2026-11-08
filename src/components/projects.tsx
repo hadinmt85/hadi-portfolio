@@ -19,6 +19,7 @@ function ProjectShot({ project }: { project: Project }) {
         dir="ltr"
         tabIndex={0}
         aria-label={project.title}
+        data-lenis-prevent
       >
         <Image
           src={project.image.src}
