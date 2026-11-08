@@ -81,6 +81,9 @@ export type SiteContent = {
       sending: string;
       error: string;
       fallback: string;
+      copyEmail: string;
+      copied: string;
+      gmail: string;
     };
     socials: Social[];
   };
@@ -109,7 +112,11 @@ export const siteLinks = {
 
 const github: Social = { label: "GitHub", href: siteLinks.github, icon: "github" };
 const telegram: Social = { label: "Telegram", href: siteLinks.telegram, icon: "telegram" };
-const mail: Social = { label: "Email", href: `mailto:${EMAIL}`, icon: "mail" };
+const mail: Social = {
+  label: "Email",
+  href: `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`,
+  icon: "mail",
+};
 
 export const site: Record<Lang, SiteContent> = {
   fa: {
@@ -257,11 +264,14 @@ export const site: Record<Lang, SiteContent> = {
         message: "پیام",
         messagePlaceholder: "دربارهٔ پروژه‌ات بنویس…",
         submit: "ارسال پیام",
-        note: "پیام مستقیم برای من ارسال می‌شود؛ اگر سرویس در دسترس نبود، برنامهٔ ایمیل باز می‌شود.",
+        note: "پیام مستقیم برای من ارسال می‌شود.",
         success: "پیامت رسید. ممنون! معمولاً کمتر از یک روز کاری جواب می‌دهم.",
         sending: "در حال ارسال…",
-        error: "ارسال نشد. لطفاً دوباره تلاش کن یا مستقیم به namatihadi7@gmail.com ایمیل بزن.",
-        fallback: "برنامهٔ ایمیل باز شد؛ اگر باز نشد مستقیم به namatihadi7@gmail.com ایمیل بزن.",
+        error: "ارسال نشد. لطفاً دوباره تلاش کن یا از راه‌های زیر پیام بده.",
+        fallback: "فعلاً ارسال خودکار فعال نیست؛ ایمیل را کپی کن یا از Gmail بفرست.",
+        copyEmail: "کپی ایمیل",
+        copied: "کپی شد",
+        gmail: "ارسال از Gmail",
       },
       socials: [github, telegram, mail],
     },
@@ -417,11 +427,14 @@ export const site: Record<Lang, SiteContent> = {
         message: "Message",
         messagePlaceholder: "Tell me about your project…",
         submit: "Send message",
-        note: "Your message goes straight to me; if the service is unavailable, your email app opens instead.",
+        note: "Your message goes straight to me.",
         success: "Got it — thanks! I usually reply within one business day.",
         sending: "Sending…",
-        error: "Could not send. Please try again or email namatihadi7@gmail.com directly.",
-        fallback: "Your email app should be open. If not, email namatihadi7@gmail.com directly.",
+        error: "Could not send. Please try again or use one of the options below.",
+        fallback: "Automatic sending is not enabled yet. Copy the address or send it from Gmail.",
+        copyEmail: "Copy email",
+        copied: "Copied",
+        gmail: "Send via Gmail",
       },
       socials: [github, telegram, mail],
     },

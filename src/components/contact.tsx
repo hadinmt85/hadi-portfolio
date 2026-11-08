@@ -1,10 +1,10 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { ArrowUpRight, Github, Mail, MapPin, Phone, Telegram } from "@/components/icons";
+import { ArrowUpRight, Check, Github, Mail, MapPin, Phone, Telegram } from "@/components/icons";
 import { siteLinks } from "@/content/site";
 import type { Social } from "@/content/site";
 
@@ -13,6 +13,32 @@ const socialIcons = {
   telegram: Telegram,
   mail: Mail,
 };
+
+function gmailCompose(email: string) {
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}`;
+}
+
+async function copyText(text: string) {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    try {
+      const area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.opacity = "0";
+      document.body.appendChild(area);
+      area.select();
+      document.execCommand("copy");
+      area.remove();
+      return true;
+    } catch {
+      return false;
+    }
+  }
+}
 
 function PhoneRow({ phone, showLabel }: { phone: string; showLabel: string }) {
   const [visible, setVisible] = useState(false);
@@ -50,9 +76,62 @@ function PhoneRow({ phone, showLabel }: { phone: string; showLabel: string }) {
   );
 }
 
+function EmailRow({
+  email,
+  copyLabel,
+  copiedLabel,
+  gmailLabel,
+}: {
+  email: string;
+  copyLabel: string;
+  copiedLabel: string;
+  gmailLabel: string;
+}) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    const ok = await copyText(email);
+    if (!ok) return;
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 2200);
+  };
+
+  return (
+    <div className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-3 transition-colors hover:border-accent/30 hover:bg-accent/[0.05]">
+      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-accent/20 bg-accent/10 text-accent">
+        <Mail className="h-[18px] w-[18px]" />
+      </span>
+      <button type="button" onClick={handleCopy} className="min-w-0 flex-1 text-start">
+        <span dir="ltr" className="block truncate text-[13.5px] text-ink/90">
+          {email}
+        </span>
+        <span className="mt-0.5 flex items-center gap-1 text-[10.5px] text-muted">
+          {copied ? (
+            <>
+              <Check className="h-3 w-3 text-accent" />
+              <span className="text-accent">{copiedLabel}</span>
+            </>
+          ) : (
+            copyLabel
+          )}
+        </span>
+      </button>
+      <a
+        href={gmailCompose(email)}
+        target="_blank"
+        rel="noreferrer"
+        className="inline-flex shrink-0 items-center gap-1 rounded-full border border-line bg-surface2 px-2.5 py-1.5 text-[11px] text-muted transition-colors hover:border-accent/40 hover:text-accent"
+      >
+        {gmailLabel}
+        <ArrowUpRight className="h-3 w-3" />
+      </a>
+    </div>
+  );
+}
+
 function SocialLink({ social }: { social: Social }) {
   const Icon = socialIcons[social.icon];
-  const external = social.icon !== "mail";
+  const external = social.href.startsWith("http");
 
   return (
     <a
@@ -72,6 +151,14 @@ export function Contact() {
   const { t } = useLanguage();
   const { contact } = t;
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "fallback" | "error">("idle");
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    const ok = await copyText(contact.email);
+    if (!ok) return;
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 2200);
+  };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -99,11 +186,9 @@ export function Contact() {
         return;
       }
 
-      // No mail provider configured yet: fall back to the visitor's email app.
+      // No mail provider configured yet. Do not open mailto (it often does
+      // nothing when the system has no default mail app); offer copy + Gmail.
       if (response.status === 501) {
-        const subject = `New message from ${name || "your website"}`;
-        const body = `${message}\n\n—\n${name}\n${email}`;
-        window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         setStatus("fallback");
         return;
       }
@@ -113,11 +198,6 @@ export function Contact() {
       setStatus("error");
     }
   };
-
-  const rows = [
-    { icon: Mail, label: contact.email, href: `mailto:${contact.email}`, value: contact.email, ltr: true },
-    { icon: MapPin, label: contact.location, href: undefined, value: contact.location, ltr: false },
-  ];
 
   return (
     <section id="contact" data-section className="relative py-20 sm:py-28">
@@ -134,41 +214,21 @@ export function Contact() {
                   <SectionHeading kicker={contact.kicker} title={contact.title} desc={contact.desc} />
 
                   <div className="mt-8 space-y-3">
-                    {rows.map((row, index) => {
-                      const Icon = row.icon;
-                      const content = (
-                        <>
-                          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-accent/20 bg-accent/10 text-accent">
-                            <Icon className="h-[18px] w-[18px]" />
-                          </span>
-                          <span className="min-w-0">
-                            <span dir={row.ltr ? "ltr" : undefined} className="block truncate text-[13.5px] text-ink/90">
-                              {row.value}
-                            </span>
-                          </span>
-                        </>
-                      );
-
-                      const item = row.href ? (
-                        <a
-                          href={row.href}
-                          className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-3 transition-colors hover:border-accent/30 hover:bg-accent/[0.05]"
-                        >
-                          {content}
-                        </a>
-                      ) : (
-                        <div className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-3">
-                          {content}
-                        </div>
-                      );
-
-                      return (
-                        <Fragment key={row.label}>
-                          {item}
-                          {index === 0 && <PhoneRow phone={contact.phone} showLabel={contact.showPhone} />}
-                        </Fragment>
-                      );
-                    })}
+                    <EmailRow
+                      email={contact.email}
+                      copyLabel={contact.form.copyEmail}
+                      copiedLabel={contact.form.copied}
+                      gmailLabel={contact.form.gmail}
+                    />
+                    <PhoneRow phone={contact.phone} showLabel={contact.showPhone} />
+                    <div className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-3">
+                      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-accent/20 bg-accent/10 text-accent">
+                        <MapPin className="h-[18px] w-[18px]" />
+                      </span>
+                      <span className="min-w-0">
+                        <span className="block truncate text-[13.5px] text-ink/90">{contact.location}</span>
+                      </span>
+                    </div>
                   </div>
 
                   <div className="mt-8">
@@ -252,17 +312,44 @@ export function Contact() {
                       <ArrowUpRight className="h-4 w-4" />
                     </button>
 
-                    <p className="text-center text-[11px] leading-5 text-muted/75">
+                    <div className="text-center text-[11px] leading-5 text-muted/75">
                       {status === "ok" ? (
                         <span className="text-accent">{contact.form.success}</span>
-                      ) : status === "fallback" ? (
-                        <span className="text-accent">{contact.form.fallback}</span>
                       ) : status === "error" ? (
                         <span className="text-red-400">{contact.form.error}</span>
+                      ) : status === "fallback" ? (
+                        <div className="space-y-1.5">
+                          <p>{contact.form.fallback}</p>
+                          <div className="flex flex-wrap items-center justify-center gap-3">
+                            <button
+                              type="button"
+                              onClick={handleCopy}
+                              className="inline-flex items-center gap-1 font-medium text-accent underline-offset-2 hover:underline"
+                            >
+                              {copied ? (
+                                <>
+                                  <Check className="h-3 w-3" />
+                                  {contact.form.copied}
+                                </>
+                              ) : (
+                                contact.form.copyEmail
+                              )}
+                            </button>
+                            <a
+                              href={gmailCompose(contact.email)}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="inline-flex items-center gap-1 font-medium text-accent underline-offset-2 hover:underline"
+                            >
+                              {contact.form.gmail}
+                              <ArrowUpRight className="h-3 w-3" />
+                            </a>
+                          </div>
+                        </div>
                       ) : (
                         contact.form.note
                       )}
-                    </p>
+                    </div>
                   </form>
                 </div>
               </div>
