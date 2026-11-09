@@ -46,10 +46,16 @@ export function Education() {
             <SectionHeading kicker={education.kicker} title={education.title} desc={education.desc} />
           </Reveal>
           <Reveal delay={100}>
-            <a href="/resume.pdf" download className="btn btn-ghost">
-              <Download className="h-4 w-4" />
-              {education.resumeCta}
-            </a>
+            <div className="flex flex-wrap items-center gap-2">
+              <a href="/resume.pdf" download className="btn btn-ghost">
+                <Download className="h-4 w-4" />
+                {education.resumeCta}
+              </a>
+              <a href="/resume-en.pdf" download className="btn btn-ghost">
+                <Download className="h-4 w-4" />
+                English CV
+              </a>
+            </div>
           </Reveal>
         </div>
 

@@ -1,13 +1,30 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect } from "react";
 import { useLanguage } from "@/components/language-provider";
 import { ArrowUpRight, Download } from "@/components/icons";
-import { siteLinks } from "@/content/site";
+import { site, siteLinks } from "@/content/site";
+import type { Lang } from "@/content/site";
 
-export function ResumeView() {
-  const { lang, setLang, t } = useLanguage();
+export function ResumeView({ forceLang }: { forceLang?: Lang }) {
+  const { lang: activeLang, setLang, t: contextT } = useLanguage();
+  const lang = forceLang ?? activeLang;
+  const t = forceLang ? site[forceLang] : contextT;
   const { hero, about, education, skills, projects, contact, languages } = t;
+
+  useEffect(() => {
+    if (!forceLang) return;
+    const root = document.documentElement;
+    const prevDir = root.dir;
+    const prevLang = root.lang;
+    root.dir = forceLang === "fa" ? "rtl" : "ltr";
+    root.lang = forceLang;
+    return () => {
+      root.dir = prevDir;
+      root.lang = prevLang;
+    };
+  }, [forceLang]);
 
   const skillGroups = skills.groups.map((group) => ({
     title: group.title,
@@ -28,28 +45,46 @@ export function ResumeView() {
         </Link>
 
         <div className="flex items-center gap-2">
-          <div className="flex items-center rounded-full border border-neutral-300 bg-white p-0.5">
-            <button
-              type="button"
-              onClick={() => setLang("fa")}
-              aria-pressed={lang === "fa"}
-              className={`min-w-[38px] rounded-full px-2.5 py-1.5 text-xs font-semibold ${
-                lang === "fa" ? "bg-emerald-600 text-white" : "text-neutral-600"
-              }`}
-            >
-              فا
-            </button>
-            <button
-              type="button"
-              onClick={() => setLang("en")}
-              aria-pressed={lang === "en"}
-              className={`min-w-[38px] rounded-full px-2.5 py-1.5 text-xs font-semibold ${
-                lang === "en" ? "bg-emerald-600 text-white" : "text-neutral-600"
-              }`}
-            >
-              EN
-            </button>
-          </div>
+          {!forceLang && (
+            <div className="flex items-center rounded-full border border-neutral-300 bg-white p-0.5">
+              <button
+                type="button"
+                onClick={() => setLang("fa")}
+                aria-pressed={lang === "fa"}
+                className={`min-w-[38px] rounded-full px-2.5 py-1.5 text-xs font-semibold ${
+                  lang === "fa" ? "bg-emerald-600 text-white" : "text-neutral-600"
+                }`}
+              >
+                فا
+              </button>
+              <button
+                type="button"
+                onClick={() => setLang("en")}
+                aria-pressed={lang === "en"}
+                className={`min-w-[38px] rounded-full px-2.5 py-1.5 text-xs font-semibold ${
+                  lang === "en" ? "bg-emerald-600 text-white" : "text-neutral-600"
+                }`}
+              >
+                EN
+              </button>
+            </div>
+          )}
+
+          <a
+            href="/resume.pdf"
+            download
+            className="rounded-full border border-neutral-300 bg-white px-3 py-2 text-[12px] font-semibold text-neutral-700 transition-colors hover:border-emerald-600 hover:text-emerald-700"
+          >
+            PDF فارسی
+          </a>
+          <a
+            href="/resume-en.pdf"
+            download
+            className="rounded-full border border-neutral-300 bg-white px-3 py-2 text-[12px] font-semibold text-neutral-700 transition-colors hover:border-emerald-600 hover:text-emerald-700"
+          >
+            English PDF
+          </a>
+
           <button
             type="button"
             onClick={() => window.print()}
@@ -63,7 +98,7 @@ export function ResumeView() {
 
       <article
         dir={lang === "fa" ? "rtl" : "ltr"}
-        className="resume-sheet mx-auto w-full max-w-[820px] bg-white px-8 py-9 text-neutral-900 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)] sm:px-12 sm:py-12 print:max-w-none print:px-0 print:py-0 print:shadow-none"
+        className={`resume-sheet ${forceLang === "en" ? "resume-sheet-en" : ""} mx-auto w-full max-w-[820px] bg-white px-8 py-9 text-neutral-900 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.35)] sm:px-12 sm:py-12 print:max-w-none print:px-0 print:py-0 print:shadow-none`}
       >
         <header className="border-b border-neutral-200 pb-5">
           <h1 className="text-[26px] font-extrabold leading-tight">{hero.name}</h1>

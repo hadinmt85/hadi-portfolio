@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 };
 
-export default function ResumePage() {
-  return <ResumeView />;
+type SearchParams = { searchParams: Promise<{ lang?: string }> };
+
+export default async function ResumePage({ searchParams }: SearchParams) {
+  const { lang } = await searchParams;
+  const forceLang = lang === "fa" || lang === "en" ? lang : undefined;
+
+  return <ResumeView forceLang={forceLang} />;
 }

@@ -517,6 +517,9 @@ html[dir="rtl"] .marquee-track {
     width: 100% !important;
     padding: 0 !important;
   }
+  .resume-sheet-en {
+    zoom: 0.9;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
