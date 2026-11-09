@@ -7,7 +7,7 @@ import { siteLinks } from "@/content/site";
 
 export function ResumeView() {
   const { lang, setLang, t } = useLanguage();
-  const { hero, about, skills, projects, contact, languages } = t;
+  const { hero, about, education, skills, projects, contact, languages } = t;
 
   const skillGroups = skills.groups.map((group) => ({
     title: group.title,
@@ -81,6 +81,20 @@ export function ResumeView() {
             {lang === "fa" ? "خلاصه" : "Summary"}
           </h2>
           <p className="mt-2 text-[13px] leading-7 text-neutral-800">{about.paragraphs[0]}</p>
+        </section>
+
+        <section className="mt-6">
+          <h2 className="text-[13px] font-bold uppercase tracking-[0.12em] text-neutral-500">
+            {lang === "fa" ? "تحصیلات" : "Education"}
+          </h2>
+          <div className="mt-2 flex flex-wrap items-baseline justify-between gap-2">
+            <h3 className="text-[13.5px] font-bold text-neutral-900">{education.degree}</h3>
+            <span className="text-[11px] text-neutral-500">{education.period}</span>
+          </div>
+          <p className="mt-1 text-[12px] text-neutral-700">
+            {education.university} — {education.location}
+          </p>
+          <p className="mt-1 text-[11.5px] text-neutral-500">{education.status}</p>
         </section>
 
         <section className="mt-6">

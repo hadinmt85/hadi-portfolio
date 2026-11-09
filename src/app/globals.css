@@ -259,8 +259,7 @@ body {
   transition: background-color 0.35s ease;
 }
 
-/* Anti-aliased rings, drawn as SVG so the curves never look pixelated. */
-.site-rings {
+/* Anti-aliased rings, drawn as SVG so the curves never look pixelated. */.site-rings {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -470,6 +469,24 @@ html[data-theme="light"] .btn-primary {
 
 html[dir="rtl"] .marquee-track {
   animation-name: marquee-rtl;
+}
+
+/* Education timeline */
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  inset-block: 6px;
+  inset-inline-start: 4px;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(52, 211, 153, 0.5), rgba(255, 255, 255, 0.08) 70%, transparent);
+}
+
+.timeline-dot {
+  box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.12);
 }
 
 .grid-pattern {

@@ -11,6 +11,7 @@ export type Project = {
   blurb: string;
   tags: string[];
   year: string;
+  period: string;
   href: string;
   demo?: string;
   image: ProjectImage;
@@ -43,6 +44,23 @@ export type SiteContent = {
     highlights: Highlight[];
     stats: Stat[];
     currently: { label: string; text: string };
+  };
+  education: {
+    kicker: string;
+    title: string;
+    desc: string;
+    degree: string;
+    university: string;
+    location: string;
+    period: string;
+    status: string;
+    coursesLabel: string;
+    courses: string;
+    skillsLabel: string;
+    languagesLabel: string;
+    languages: string;
+    resumeCta: string;
+    projectsLabel: string;
   };
   skills: {
     kicker: string;
@@ -122,6 +140,7 @@ export const site: Record<Lang, SiteContent> = {
   fa: {
     nav: [
       { id: "about", label: "درباره من" },
+      { id: "journey", label: "تحصیلات" },
       { id: "skills", label: "مهارت‌ها" },
       { id: "projects", label: "نمونه‌کارها" },
       { id: "contact", label: "تماس" },
@@ -164,6 +183,23 @@ export const site: Record<Lang, SiteContent> = {
         { value: "۱۰۰٪", label: "تمرکز روی فرانت‌اند" },
       ],
       currently: { label: "این روزها", text: "در حال عمیق‌تر شدن در Server Components و دسترس‌پذیری." },
+    },
+    education: {
+      kicker: "مسیر حرفه‌ای",
+      title: "تحصیلات و تجربه",
+      desc: "دانشجوی مهندسی کامپیوتر با تمرکز روی فرانت‌اند؛ یادگیری از طریق پروژه‌های واقعی و انتشار کد روی گیت‌هاب.",
+      degree: "کارشناسی مهندسی کامپیوتر",
+      university: "دانشگاه آزاد",
+      location: "اردبیل، ایران",
+      period: "۱۴۰۳ — اکنون",
+      status: "در حال تحصیل · آمادهٔ کارآموزی و پروژهٔ جونیور",
+      coursesLabel: "دروس و تمرکز",
+      courses: "ساختمان داده، برنامه‌نویسی وب، پایگاه داده، مهندسی نرم‌افزار، شبکه",
+      skillsLabel: "مهارت‌ها",
+      languagesLabel: "زبان",
+      languages: "فارسی (زبان مادری) · انگلیسی (متوسط، در حال تقویت)",
+      resumeCta: "دانلود رزومه",
+      projectsLabel: "پروژه‌های منتخب",
     },
     skills: {
       kicker: "مهارت‌ها",
@@ -216,6 +252,7 @@ export const site: Record<Lang, SiteContent> = {
           blurb: "فروشگاه واکنش‌گرا با Next.js که محصولات را از Fake Store API می‌گیرد؛ فیلتر دسته‌بندی، مودال جزئیات، اسکلتون لودینگ و صفحه‌های سبد خرید و ورود.",
           tags: ["Next.js", "TypeScript", "Tailwind", "REST API"],
           year: "۱۴۰۵",
+          period: "مهر ۱۴۰۵",
           href: "https://github.com/hadinmt85/API-product-store",
           image: PROJECT_IMAGES.store,
           slug: "product-store",
@@ -228,6 +265,7 @@ export const site: Record<Lang, SiteContent> = {
           blurb: "صفحهٔ فرود فروش لایسنس و خدمات نرم‌افزاری با بخش‌های هیرو، پیشنهادها، دسته‌بندی محصولات، وبلاگ و فرم ورود؛ ساخته‌شده با shadcn/ui.",
           tags: ["Next.js", "TypeScript", "shadcn/ui", "Embla"],
           year: "۱۴۰۵",
+          period: "شهریور ۱۴۰۵",
           href: "https://github.com/hadinmt85/license-market",
           image: PROJECT_IMAGES.lisens,
           slug: "license-market",
@@ -240,6 +278,7 @@ export const site: Record<Lang, SiteContent> = {
           blurb: "سایت دوزبانهٔ فارسی/انگلیسی با پشتیبانی کامل RTL، انیمیشن‌های اسکرول، طراحی واکنش‌گرا و بدون وابستگی به بک‌اند.",
           tags: ["Next.js", "TypeScript", "Tailwind", "i18n"],
           year: "۱۴۰۵",
+          period: "آبان ۱۴۰۵",
           href: "https://github.com/hadinmt85/hadi-portfolio",
           image: PROJECT_IMAGES.portfolio,
           slug: "portfolio",
@@ -285,6 +324,7 @@ export const site: Record<Lang, SiteContent> = {
   en: {
     nav: [
       { id: "about", label: "About" },
+      { id: "journey", label: "Education" },
       { id: "skills", label: "Skills" },
       { id: "projects", label: "Work" },
       { id: "contact", label: "Contact" },
@@ -327,6 +367,23 @@ export const site: Record<Lang, SiteContent> = {
         { value: "100%", label: "Front-end focus" },
       ],
       currently: { label: "Currently", text: "Going deeper into Server Components and accessibility." },
+    },
+    education: {
+      kicker: "Journey",
+      title: "Education & experience",
+      desc: "Computer engineering student focused on front-end, learning through real projects and open code on GitHub.",
+      degree: "B.Sc. Computer Engineering",
+      university: "Islamic Azad University",
+      location: "Ardabil, Iran",
+      period: "2024 — Present",
+      status: "Currently studying · open to internships and junior roles",
+      coursesLabel: "Coursework",
+      courses: "Data structures, web programming, databases, software engineering, networks",
+      skillsLabel: "Skills",
+      languagesLabel: "Languages",
+      languages: "Persian (native) · English (intermediate, improving)",
+      resumeCta: "Download resume",
+      projectsLabel: "Selected projects",
     },
     skills: {
       kicker: "Skills",
@@ -379,6 +436,7 @@ export const site: Record<Lang, SiteContent> = {
           blurb: "A responsive storefront built with Next.js that pulls products from the Fake Store API, with category filters, a detail modal, loading skeletons, cart and sign-in pages.",
           tags: ["Next.js", "TypeScript", "Tailwind", "REST API"],
           year: "2026",
+          period: "Oct 2026",
           href: "https://github.com/hadinmt85/API-product-store",
           image: PROJECT_IMAGES.store,
           slug: "product-store",
@@ -391,6 +449,7 @@ export const site: Record<Lang, SiteContent> = {
           blurb: "A landing page for a software license and services marketplace: hero, offers, product categories, blog and a sign-in form, built with shadcn/ui.",
           tags: ["Next.js", "TypeScript", "shadcn/ui", "Embla"],
           year: "2026",
+          period: "Sep 2026",
           href: "https://github.com/hadinmt85/license-market",
           image: PROJECT_IMAGES.lisens,
           slug: "license-market",
@@ -403,6 +462,7 @@ export const site: Record<Lang, SiteContent> = {
           blurb: "A bilingual FA/EN personal site with full RTL support, scroll animations, a responsive layout and no back end.",
           tags: ["Next.js", "TypeScript", "Tailwind", "i18n"],
           year: "2026",
+          period: "Nov 2026",
           href: "https://github.com/hadinmt85/hadi-portfolio",
           image: PROJECT_IMAGES.portfolio,
           slug: "portfolio",

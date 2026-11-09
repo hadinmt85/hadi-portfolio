@@ -2,6 +2,7 @@ import { Background } from "@/components/background";
 import { Nav } from "@/components/nav";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
+import { Education } from "@/components/education";
 import { Skills } from "@/components/skills";
 import { Projects } from "@/components/projects";
 import { Contact } from "@/components/contact";
@@ -15,6 +16,7 @@ export default function Page() {
       <main className="relative">
         <Hero />
         <About />
+        <Education />
         <Skills />
         <Projects />
         <Contact />
