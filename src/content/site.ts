@@ -18,7 +18,7 @@ export type Project = {
   gradient: string;
   accent: string;
 };
-export type Social = { label: string; href: string; icon: "github" | "telegram" | "mail" };
+export type Social = { label: string; href: string; icon: "github" | "telegram" | "instagram" | "mail" };
 export type NavItem = { id: string; label: string };
 
 export type SiteContent = {
@@ -126,11 +126,13 @@ export const siteLinks = {
   github: "https://github.com/hadinmt85",
   githubHandle: "@hadinmt85",
   telegram: "https://t.me/hadinmt85",
+  instagram: "https://instagram.com/hadi_nmt8",
   email: EMAIL,
 };
 
 const github: Social = { label: "GitHub", href: siteLinks.github, icon: "github" };
 const telegram: Social = { label: "Telegram", href: siteLinks.telegram, icon: "telegram" };
+const instagram: Social = { label: "Instagram", href: siteLinks.instagram, icon: "instagram" };
 const mail: Social = {
   label: "Email",
   href: `https://mail.google.com/mail/?view=cm&fs=1&to=${EMAIL}`,
@@ -314,7 +316,7 @@ export const site: Record<Lang, SiteContent> = {
         copied: "کپی شد",
         gmail: "ارسال از Gmail",
       },
-      socials: [github, telegram, mail],
+      socials: [github, telegram, instagram, mail],
     },
     footer: {
       tagline: "ساخته‌شده با Next.js، Tailwind و مقدار زیادی قهوه.",
@@ -499,7 +501,7 @@ export const site: Record<Lang, SiteContent> = {
         copied: "Copied",
         gmail: "Send via Gmail",
       },
-      socials: [github, telegram, mail],
+      socials: [github, telegram, instagram, mail],
     },
     footer: {
       tagline: "Built with Next.js, Tailwind and a lot of coffee.",

@@ -136,6 +136,16 @@ export function Telegram(props: IconProps) {
   );
 }
 
+export function Instagram(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="3.8" />
+      <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 export function Code(props: IconProps) {
   return (
     <svg {...base} {...props}>

@@ -4,13 +4,14 @@ import { useState } from "react";
 import { useLanguage } from "@/components/language-provider";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
-import { ArrowUpRight, Check, Github, Mail, MapPin, Phone, Telegram } from "@/components/icons";
+import { ArrowUpRight, Check, Github, Instagram, Mail, MapPin, Phone, Telegram } from "@/components/icons";
 import { siteLinks } from "@/content/site";
 import type { Social } from "@/content/site";
 
 const socialIcons = {
   github: Github,
   telegram: Telegram,
+  instagram: Instagram,
   mail: Mail,
 };
 
