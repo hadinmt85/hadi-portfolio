@@ -119,11 +119,11 @@ export function Projects() {
                           href={project.demo}
                           target="_blank"
                           rel="noreferrer"
-                          aria-label={project.title}
-                          title={project.title}
-                          className="grid h-8 w-8 place-items-center rounded-full border border-line bg-surface2 text-muted transition-colors hover:border-accent/40 hover:text-accent"
+                          title={projects.demoLabel}
+                          className="inline-flex items-center gap-1.5 rounded-full border border-accent/35 bg-accent/10 px-2.5 py-1.5 text-[11px] font-semibold text-accent transition-colors hover:bg-accent/20"
                         >
                           <Globe className="h-3.5 w-3.5" />
+                          {projects.demoLabel}
                         </a>
                       ) : null}
                       <a

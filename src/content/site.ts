@@ -76,6 +76,7 @@ export type SiteContent = {
     linkLabel: string;
     allLabel: string;
     caseLabel: string;
+    demoLabel: string;
     items: Project[];
   };
   contact: {
@@ -246,6 +247,7 @@ export const site: Record<Lang, SiteContent> = {
       linkLabel: "مشاهده در گیت‌هاب",
       allLabel: "همهٔ پروژه‌ها در گیت‌هاب",
       caseLabel: "مطالعهٔ بیشتر",
+      demoLabel: "دمو",
       items: [
         {
           title: "فروشگاه محصولات",
@@ -430,6 +432,7 @@ export const site: Record<Lang, SiteContent> = {
       linkLabel: "View on GitHub",
       allLabel: "All projects on GitHub",
       caseLabel: "Read case study",
+      demoLabel: "Demo",
       items: [
         {
           title: "Product Store",
