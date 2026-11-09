@@ -40,7 +40,7 @@ export function Nav() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
       <div
-        className={`mx-auto flex w-full max-w-6xl items-center justify-between gap-4 rounded-2xl px-4 py-3 transition-all duration-300 sm:px-5 ${
+        className={`site-nav mx-auto flex w-full max-w-6xl items-center justify-between gap-4 rounded-2xl px-4 py-3 transition-all duration-300 sm:px-5 ${
           scrolled
             ? "glass shadow-[0_18px_50px_-30px_rgba(16,185,129,0.6)]"
             : "border border-transparent bg-surface backdrop-blur-sm"
