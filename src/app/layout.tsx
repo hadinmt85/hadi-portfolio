@@ -28,6 +28,7 @@ const spaceGrotesk = Space_Grotesk({
   preload: false,
 });
 
+// Site-wide metadata (title, description, social preview, canonical URL).
 export const metadata: Metadata = {
   metadataBase: new URL("https://hadinemati.ir"),
   title: "هادی نعمتی | توسعه‌دهنده فرانت‌اند",

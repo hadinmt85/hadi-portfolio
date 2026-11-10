@@ -1,9 +1,9 @@
 # Generated static builds of the demo projects (not portfolio source code).
 # Excluding them keeps GitHub's language stats focused on the TypeScript source.
-public/demos/** linguist-vendored linguist-generated
+public/demos/** linguist-vendored linguist-generated -linguist-detectable
 
 # Design mockups are documentation, not part of the site build.
-mockup/** linguist-documentation
+mockup/** linguist-documentation -linguist-detectable
 
 # Lockfiles are generated, too.
 package-lock.json linguist-generated
