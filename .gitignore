@@ -36,3 +36,6 @@ yarn-error.log*
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# local design mockups (kept on disk, not part of the site)
+mockup/
