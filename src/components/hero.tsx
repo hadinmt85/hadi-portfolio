@@ -138,15 +138,8 @@ export function Hero() {
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
         <div className="grid items-center gap-16 lg:grid-cols-[1.06fr_0.94fr] lg:gap-10">
           <div>
-            <Reveal>
-              <span className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-4 py-1.5 text-xs font-medium text-accent">
-                <span className="h-1.5 w-1.5 animate-pulse-dot rounded-full bg-emerald-400" />
-                {t.hero.badge}
-              </span>
-            </Reveal>
-
             <Reveal delay={80}>
-              <p className="mt-7 text-base text-muted sm:text-lg">{t.hero.greeting}</p>
+              <p className="text-base text-muted sm:text-lg">{t.hero.greeting}</p>
               <h1 className="mt-1 font-display text-[2.7rem] font-extrabold leading-[1.12] tracking-tight sm:text-6xl lg:text-[4.1rem]">
                 <span className="gradient-text">{t.hero.name}</span>
               </h1>

@@ -25,7 +25,6 @@ export type SiteContent = {
   nav: NavItem[];
   languages: { fa: string; en: string; switchLabel: string };
   hero: {
-    badge: string;
     greeting: string;
     name: string;
     role: string;
@@ -150,7 +149,6 @@ export const site: Record<Lang, SiteContent> = {
     ],
     languages: { fa: "فارسی", en: "English", switchLabel: "تغییر زبان" },
     hero: {
-      badge: "آمادهٔ همکاری پروژه‌ای",
       greeting: "سلام، من",
       name: "هادی نعمتی",
       role: "توسعه‌دهندهٔ فرانت‌اند",
@@ -335,7 +333,6 @@ export const site: Record<Lang, SiteContent> = {
     ],
     languages: { fa: "فارسی", en: "English", switchLabel: "Switch language" },
     hero: {
-      badge: "Open for freelance work",
       greeting: "Hi, I'm",
       name: "Hadi Nemati",
       role: "Front-end Developer",
