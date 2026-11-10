@@ -2,5 +2,8 @@
 # Excluding them keeps GitHub's language stats focused on the TypeScript source.
 public/demos/** linguist-vendored linguist-generated
 
+# Design mockups are documentation, not part of the site build.
+mockup/** linguist-documentation
+
 # Lockfiles are generated, too.
 package-lock.json linguist-generated
