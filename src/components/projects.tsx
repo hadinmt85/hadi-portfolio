@@ -26,7 +26,7 @@ function ProjectShot({ project }: { project: Project }) {
           alt={project.title}
           width={project.image.width}
           height={project.image.height}
-          sizes="(min-width: 1024px) 384px, (min-width: 640px) 50vw, 100vw"
+          sizes="(min-width: 640px) 50vw, 100vw"
           className="h-auto w-full select-none"
           draggable={false}
         />
@@ -66,7 +66,7 @@ export function Projects() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {projects.items.map((project, index) => (
             <Reveal key={project.title} delay={(index % 2) * 100 + Math.floor(index / 2) * 60}>
               <article className="group card-hover flex h-full flex-col overflow-hidden rounded-3xl border border-line bg-surface">

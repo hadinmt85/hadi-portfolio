@@ -15,6 +15,38 @@ export type CaseStudyCopy = {
 
 export const caseStudies: Record<Lang, Record<string, CaseStudyCopy>> = {
   fa: {
+    "hadi-store": {
+      role: "طراحی و توسعهٔ فول‌استک",
+      timeline: "آبان ۱۴۰۵ — پروژهٔ شخصی",
+      summary:
+        "فروشگاه اینترنتی کالای دیجیتال با Next.js و PostgreSQL؛ از احراز هویت و سبد خرید تا علاقه‌مندی‌ها، تسویه و پیگیری سفارش، همراه با پنل مدیریت.",
+      sections: [
+        {
+          title: "مسئله",
+          body: "بیشتر نمونه‌فروشگاه‌ها فقط چند صفحهٔ ثابت دارند و جریان واقعی خرید را پوشش نمی‌دهند. می‌خواستم فروشگاهی بسازم که کاربر در آن ثبت‌نام کند، وارد شود، خریدش را نهایی کند و بعد سفارشش را پیگیری کند؛ و مدیر هم بدون واسطه سفارش‌ها و محصولات را مدیریت کند.",
+        },
+        {
+          title: "رویکرد",
+          body: "کل پروژه یک اپلیکیشن Next.js با App Router است؛ صفحات سنگین سمت سرور رندر می‌شوند و فقط بخش‌های تعاملی کامپوننت کلاینت هستند.",
+          bullets: [
+            "ثبت‌نام و ورود با هش رمز به روش scrypt و نشست‌های امن ذخیره‌شده در پایگاه داده",
+            "سبد خرید مهمان که بعد از ورود، به‌صورت خودکار به حساب کاربر منتقل می‌شود",
+            "علاقه‌مندی‌ها با قلب روی کارت محصول و بخش اختصاصی در حساب کاربری",
+            "تسویهٔ سفارش، صدور کد پیگیری و صفحهٔ وضعیت سفارش",
+            "پنل مدیریت برای مشاهدهٔ آمار، تغییر وضعیت سفارش‌ها و افزودن محصول",
+            "رابط راست‌به‌چپ واکنش‌گرا با تمرکز بر تایپوگرافی فارسی و دسترس‌پذیری",
+          ],
+        },
+        {
+          title: "چالش‌ها",
+          body: "سخت‌ترین بخش، هماهنگ نگه‌داشتن سبد خرید هنگام گذر از حالت مهمان به کاربر واردشده بود؛ باید مطمئن می‌شدم کالایی که مهمان انتخاب کرده از دست نمی‌رود و در عین حال مسیرهای حساس مثل تسویه و پنل مدیریت بدون ورود باز نمی‌شوند.",
+        },
+        {
+          title: "نتیجه",
+          body: "یک فروشگاه کامل و آنلاین که تمام مسیر خرید — از دیدن محصول تا پیگیری سفارش — را پوشش می‌دهد و روی Vercel با پایگاه دادهٔ Neon اجرا می‌شود. کد کامل روی گیت‌هاب در دسترس است.",
+        },
+      ],
+    },
     "product-store": {
       role: "توسعه‌دهندهٔ فرانت‌اند",
       timeline: "۱۴۰۵ — پروژهٔ شخصی",
@@ -109,6 +141,38 @@ export const caseStudies: Record<Lang, Record<string, CaseStudyCopy>> = {
     },
   },
   en: {
+    "hadi-store": {
+      role: "Full-stack design & development",
+      timeline: "Nov 2026 — Personal project",
+      summary:
+        "A digital-gadget online store built with Next.js and PostgreSQL: authentication, cart, wishlist, checkout and order tracking, plus an admin panel.",
+      sections: [
+        {
+          title: "The problem",
+          body: "Most storefront demos stop at a few static pages and skip the real purchase flow. I wanted a store where a customer can register, sign in, complete a purchase and then track the order — and where an admin can manage orders and products directly.",
+        },
+        {
+          title: "The approach",
+          body: "The whole product is a single Next.js app using the App Router: data-heavy pages render on the server, and only the interactive pieces are client components.",
+          bullets: [
+            "Registration and sign-in with scrypt password hashing and database-backed sessions",
+            "A guest cart that is carried over to the account automatically after login",
+            "Wishlist with a heart on every product card and a dedicated account section",
+            "Checkout, order codes and a status page for tracking",
+            "An admin panel for stats, order status updates and adding products",
+            "A responsive RTL-first interface focused on Persian typography and accessibility",
+          ],
+        },
+        {
+          title: "Challenges",
+          body: "The hard part was keeping the cart intact while a guest becomes a signed-in user: the item chosen before login must not be lost, while sensitive routes such as checkout and the admin panel stay protected at the same time.",
+        },
+        {
+          title: "Result",
+          body: "A complete, live store covering the whole journey from browsing to order tracking, running on Vercel with a Neon Postgres database. The full code is on GitHub.",
+        },
+      ],
+    },
     "product-store": {
       role: "Front-end developer",
       timeline: "2026 — Personal project",

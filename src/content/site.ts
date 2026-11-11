@@ -119,6 +119,7 @@ const PROJECT_IMAGES = {
   store: { src: "/store.webp", width: 1200, height: 1602 },
   lisens: { src: "/lisens.webp", width: 1200, height: 5643 },
   portfolio: { src: "/portfolio.webp", width: 1200, height: 3248 },
+  hadiStore: { src: "/hadi-store.webp", width: 1280, height: 2950 },
 } satisfies Record<string, ProjectImage>;
 
 export const siteLinks = {
@@ -179,7 +180,7 @@ export const site: Record<Lang, SiteContent> = {
       ],
       stats: [
         { value: "۳+", label: "سال تجربه" },
-        { value: "۳", label: "پروژهٔ متن‌باز" },
+        { value: "۴", label: "پروژهٔ متن‌باز" },
         { value: "۱۲", label: "تکنولوژی" },
         { value: "۱۰۰٪", label: "تمرکز روی فرانت‌اند" },
       ],
@@ -249,6 +250,19 @@ export const site: Record<Lang, SiteContent> = {
       caseLabel: "مطالعهٔ بیشتر",
       demoLabel: "دمو",
       items: [
+        {
+          title: "فروشگاه Hadi Store",
+          blurb: "فروشگاه اینترنتی کالای دیجیتال با Next.js و Postgres/Neon؛ ثبت‌نام و ورود، سبد خرید متصل به حساب، علاقه‌مندی‌ها، تسویه و پیگیری سفارش با رابط راست‌به‌چپ واکنش‌گرا.",
+          tags: ["Next.js", "TypeScript", "Tailwind", "PostgreSQL"],
+          year: "۱۴۰۵",
+          period: "آبان ۱۴۰۵",
+          href: "https://github.com/hadinmt85/hadi-store",
+          image: PROJECT_IMAGES.hadiStore,
+          slug: "hadi-store",
+          demo: "https://gadgetland-zeta.vercel.app",
+          gradient: "linear-gradient(135deg, #2b2c46 0%, #3f4064 45%, #ef4056 100%)",
+          accent: "#fecdd3",
+        },
         {
           title: "فروشگاه محصولات",
           blurb: "فروشگاه واکنش‌گرا با Next.js که محصولات را از Fake Store API می‌گیرد؛ فیلتر دسته‌بندی، مودال جزئیات، اسکلتون لودینگ و صفحه‌های سبد خرید و ورود.",
@@ -363,7 +377,7 @@ export const site: Record<Lang, SiteContent> = {
       ],
       stats: [
         { value: "3+", label: "Years of experience" },
-        { value: "3", label: "Open-source projects" },
+        { value: "4", label: "Open-source projects" },
         { value: "12", label: "Technologies" },
         { value: "100%", label: "Front-end focus" },
       ],
@@ -433,6 +447,19 @@ export const site: Record<Lang, SiteContent> = {
       caseLabel: "Read case study",
       demoLabel: "Demo",
       items: [
+        {
+          title: "Hadi Store",
+          blurb: "A digital-gadget storefront built with Next.js and Postgres/Neon: accounts and sign-in, a login-aware cart, wishlist, checkout and order tracking, all in a responsive RTL-first interface.",
+          tags: ["Next.js", "TypeScript", "Tailwind", "PostgreSQL"],
+          year: "2026",
+          period: "Nov 2026",
+          href: "https://github.com/hadinmt85/hadi-store",
+          image: PROJECT_IMAGES.hadiStore,
+          slug: "hadi-store",
+          demo: "https://gadgetland-zeta.vercel.app",
+          gradient: "linear-gradient(135deg, #2b2c46 0%, #3f4064 45%, #ef4056 100%)",
+          accent: "#fecdd3",
+        },
         {
           title: "Product Store",
           blurb: "A responsive storefront built with Next.js that pulls products from the Fake Store API, with category filters, a detail modal, loading skeletons, cart and sign-in pages.",
