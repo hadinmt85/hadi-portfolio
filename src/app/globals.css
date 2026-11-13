@@ -228,6 +228,23 @@ body {
   background: var(--c-scrollbar-hover);
 }
 
+/* Mobile and in-app browsers (Instagram / Telegram) can render a classic
+   scrollbar that takes ~10px from one side. Fixed, centered elements then sit
+   slightly off-center, because they center inside the reduced layout viewport.
+   Mobile scrollbars are overlay-only anyway, so hide the track on small or
+   touch-first screens to keep the header perfectly centered. */
+@media (max-width: 767px), (pointer: coarse) {
+  html,
+  body {
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .project-shot {
   scrollbar-width: thin;
   scrollbar-color: var(--c-scrollbar) transparent;
