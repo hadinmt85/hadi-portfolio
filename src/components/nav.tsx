@@ -40,7 +40,7 @@ export function Nav() {
   return (
     <header className="fixed left-[50vw] top-0 z-50 w-[calc(100vw-2rem)] max-w-6xl -translate-x-1/2 pt-4">
       <div
-        className={`site-nav relative flex w-full items-center justify-between gap-4 rounded-2xl px-4 py-3 transition-all duration-300 sm:px-5 ${
+        className={`site-nav flex w-full items-center justify-between gap-4 rounded-2xl px-4 py-3 transition-all duration-300 sm:px-5 ${
           scrolled
             ? "glass shadow-[0_18px_50px_-30px_rgba(16,185,129,0.6)]"
             : "border border-transparent bg-surface backdrop-blur-sm"
@@ -81,43 +81,41 @@ export function Nav() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <div className="absolute left-1/2 flex -translate-x-1/2 items-center gap-2 md:static md:left-auto md:translate-x-0">
+          <button
+            type="button"
+            onClick={toggle}
+            aria-label={lang === "fa" ? "تغییر حالت روشن و تیره" : "Toggle light and dark mode"}
+            title={lang === "fa" ? "حالت روشن / تیره" : "Light / dark mode"}
+            className="grid h-9 w-9 place-items-center rounded-full border border-line bg-surface2 text-muted transition-colors hover:border-accent/40 hover:text-accent"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
+
+          <div
+            className="flex items-center rounded-full border border-line bg-surface2 p-0.5"
+            role="group"
+            aria-label={t.languages.switchLabel}
+          >
             <button
               type="button"
-              onClick={toggle}
-              aria-label={lang === "fa" ? "تغییر حالت روشن و تیره" : "Toggle light and dark mode"}
-              title={lang === "fa" ? "حالت روشن / تیره" : "Light / dark mode"}
-              className="grid h-9 w-9 place-items-center rounded-full border border-line bg-surface2 text-muted transition-colors hover:border-accent/40 hover:text-accent"
+              onClick={() => setLang("fa")}
+              aria-pressed={lang === "fa"}
+              className={`flex min-w-[38px] items-center justify-center rounded-full px-2.5 py-1.5 text-xs font-semibold transition-colors ${
+                lang === "fa" ? "bg-accent/15 text-accent" : "text-muted hover:text-ink"
+              }`}
             >
-              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+              فا
             </button>
-
-            <div
-              className="flex items-center rounded-full border border-line bg-surface2 p-0.5"
-              role="group"
-              aria-label={t.languages.switchLabel}
+            <button
+              type="button"
+              onClick={() => setLang("en")}
+              aria-pressed={lang === "en"}
+              className={`flex min-w-[38px] items-center justify-center rounded-full px-2.5 py-1.5 text-xs font-semibold transition-colors ${
+                lang === "en" ? "bg-accent/15 text-accent" : "text-muted hover:text-ink"
+              }`}
             >
-              <button
-                type="button"
-                onClick={() => setLang("fa")}
-                aria-pressed={lang === "fa"}
-                className={`flex min-w-[38px] items-center justify-center rounded-full px-2.5 py-1.5 text-xs font-semibold transition-colors ${
-                  lang === "fa" ? "bg-accent/15 text-accent" : "text-muted hover:text-ink"
-                }`}
-              >
-                فا
-              </button>
-              <button
-                type="button"
-                onClick={() => setLang("en")}
-                aria-pressed={lang === "en"}
-                className={`flex min-w-[38px] items-center justify-center rounded-full px-2.5 py-1.5 text-xs font-semibold transition-colors ${
-                  lang === "en" ? "bg-accent/15 text-accent" : "text-muted hover:text-ink"
-                }`}
-              >
-                EN
-              </button>
-            </div>
+              EN
+            </button>
           </div>
 
           <Globe className="hidden h-4 w-4 text-muted lg:block" />
