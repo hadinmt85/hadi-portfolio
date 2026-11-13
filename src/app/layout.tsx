@@ -4,6 +4,7 @@ import "./globals.css";
 import { LanguageProvider } from "@/components/language-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { ViewportDebug } from "@/components/viewport-debug";
 import { Analytics } from "@vercel/analytics/next";
 
 const vazirmatn = Vazirmatn({
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </LanguageProvider>
         </ThemeProvider>
+        <ViewportDebug />
         <Analytics />
       </body>
     </html>
