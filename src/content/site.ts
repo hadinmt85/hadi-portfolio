@@ -251,7 +251,7 @@ export const site: Record<Lang, SiteContent> = {
       demoLabel: "دمو",
       items: [
         {
-          title: "فروشگاه Hadi Store",
+          title: "فروشگاه Hadi Digital",
           blurb: "فروشگاه اینترنتی کالای دیجیتال با Next.js و Postgres/Neon؛ ثبت‌نام و ورود، سبد خرید متصل به حساب، علاقه‌مندی‌ها، تسویه و پیگیری سفارش با رابط راست‌به‌چپ واکنش‌گرا.",
           tags: ["Next.js", "TypeScript", "Tailwind", "PostgreSQL"],
           year: "۱۴۰۵",
@@ -448,7 +448,7 @@ export const site: Record<Lang, SiteContent> = {
       demoLabel: "Demo",
       items: [
         {
-          title: "Hadi Store",
+          title: "Hadi Digital",
           blurb: "A digital-gadget storefront built with Next.js and Postgres/Neon: accounts and sign-in, a login-aware cart, wishlist, checkout and order tracking, all in a responsive RTL-first interface.",
           tags: ["Next.js", "TypeScript", "Tailwind", "PostgreSQL"],
           year: "2026",
