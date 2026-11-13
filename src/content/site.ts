@@ -119,7 +119,7 @@ const PROJECT_IMAGES = {
   store: { src: "/store.webp", width: 1200, height: 1602 },
   lisens: { src: "/lisens.webp", width: 1200, height: 5643 },
   portfolio: { src: "/portfolio.webp", width: 1200, height: 3248 },
-  hadiStore: { src: "/hadi-store.webp", width: 1280, height: 2950 },
+  hadiStore: { src: "/hadi-store.webp", width: 1280, height: 3161 },
 } satisfies Record<string, ProjectImage>;
 
 export const siteLinks = {
