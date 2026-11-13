@@ -71,7 +71,7 @@ export function ViewportDebug() {
           position: "fixed",
           top: 0,
           bottom: 0,
-          left: "50%",
+          left: "50vw",
           width: 1,
           background: "rgba(255,80,80,0.9)",
           zIndex: 9998,
@@ -109,7 +109,7 @@ export function ViewportDebug() {
           </div>
         ))}
         <div style={{ marginTop: 4, color: "#8ba39b" }}>
-          قرمز: خط وسط لایه‌بندی. اگر وسط صفحه نیست، هدر هم همان‌جا وسط‌چین می‌شود.
+          قرمز: خط وسط صفحه. اگر وسط نوار هدر نبود، اختلاف در همین پنل مشخص است.
         </div>
       </div>
     </>
