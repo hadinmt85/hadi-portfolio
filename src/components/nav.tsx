@@ -42,10 +42,10 @@ export function Nav() {
       data-scrolled={scrolled ? "true" : "false"}
       className="site-header fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)] backdrop-blur-xl"
     >
-      <div className="mx-auto flex h-[68px] w-full max-w-6xl items-center justify-between gap-4 px-5 sm:h-[76px] sm:px-8">
+      <div className="mx-auto flex h-[68px] w-full max-w-6xl items-center justify-between gap-2 px-5 sm:h-[76px] sm:gap-4 sm:px-8">
         <a
           href="#home"
-          className="group flex items-center gap-2.5"
+          className="group flex min-w-0 items-center gap-2.5"
           onClick={() => setOpen(false)}
           aria-label={lang === "fa" ? "هادی نعمتی — صفحه اصلی" : "Hadi Nemati — home"}
         >
@@ -55,9 +55,9 @@ export function Nav() {
             priority
             className="shadow-[0_10px_24px_-12px_rgba(52,211,153,0.9)] transition-transform duration-300 group-hover:-rotate-6"
           />
-          <span className="hidden flex-col leading-tight sm:flex">
-            <span className="font-display text-sm font-semibold text-ink">{t.hero.name}</span>
-            <span className="text-[11px] text-muted">{t.hero.role}</span>
+          <span className="flex min-w-0 flex-col leading-tight">
+            <span className="truncate font-display text-sm font-semibold text-ink">{t.hero.name}</span>
+            <span className="truncate text-[11px] text-muted">{t.hero.role}</span>
           </span>
         </a>
 
@@ -77,13 +77,13 @@ export function Nav() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           <button
             type="button"
             onClick={toggle}
             aria-label={lang === "fa" ? "تغییر حالت روشن و تیره" : "Toggle light and dark mode"}
             title={lang === "fa" ? "حالت روشن / تیره" : "Light / dark mode"}
-            className="grid h-9 w-9 place-items-center rounded-full border border-line bg-surface2 text-muted transition-colors hover:border-accent/40 hover:text-accent"
+            className="grid h-8 w-8 place-items-center rounded-full border border-line bg-surface2 text-muted transition-colors hover:border-accent/40 hover:text-accent sm:h-9 sm:w-9"
           >
             {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
@@ -97,7 +97,7 @@ export function Nav() {
               type="button"
               onClick={() => setLang("fa")}
               aria-pressed={lang === "fa"}
-              className={`flex min-w-[38px] items-center justify-center rounded-full px-2.5 py-1.5 text-xs font-semibold transition-colors ${
+              className={`flex min-w-[34px] items-center justify-center rounded-full px-2 py-1.5 text-xs font-semibold transition-colors sm:min-w-[38px] sm:px-2.5 ${
                 lang === "fa" ? "bg-accent/15 text-accent" : "text-muted hover:text-ink"
               }`}
             >
@@ -107,7 +107,7 @@ export function Nav() {
               type="button"
               onClick={() => setLang("en")}
               aria-pressed={lang === "en"}
-              className={`flex min-w-[38px] items-center justify-center rounded-full px-2.5 py-1.5 text-xs font-semibold transition-colors ${
+              className={`flex min-w-[34px] items-center justify-center rounded-full px-2 py-1.5 text-xs font-semibold transition-colors sm:min-w-[38px] sm:px-2.5 ${
                 lang === "en" ? "bg-accent/15 text-accent" : "text-muted hover:text-ink"
               }`}
             >
@@ -122,7 +122,7 @@ export function Nav() {
             onClick={() => setOpen((prev) => !prev)}
             aria-expanded={open}
             aria-label={open ? "بستن منو" : "باز کردن منو"}
-            className="grid h-10 w-10 place-items-center rounded-xl border border-line bg-surface2 text-ink transition-colors hover:border-accent/40 hover:text-accent md:hidden"
+            className="grid h-9 w-9 place-items-center rounded-xl border border-line bg-surface2 text-ink transition-colors hover:border-accent/40 hover:text-accent md:hidden sm:h-10 sm:w-10"
           >
             {open ? <Close className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
