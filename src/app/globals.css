@@ -286,7 +286,9 @@ body {
 
 /* Full-bleed sticky header: glued to the top, left and right edges. */
 .site-header {
-  background: color-mix(in srgb, var(--c-bg) 82%, transparent);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.03)),
+    color-mix(in srgb, var(--c-bg) 82%, transparent);
   border-bottom: 1px solid var(--c-line);
   transition:
     background-color 0.3s ease,
@@ -313,7 +315,9 @@ body {
 
 /* Once the page scrolls, the bar firms up with a deeper tint and a soft shadow. */
 .site-header[data-scrolled="true"] {
-  background: color-mix(in srgb, var(--c-bg) 94%, transparent);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.045)),
+    color-mix(in srgb, var(--c-bg) 94%, transparent);
   border-bottom-color: color-mix(in srgb, var(--c-accent-strong) 22%, var(--c-line));
   box-shadow:
     0 24px 48px -40px rgba(0, 0, 0, 0.9),
