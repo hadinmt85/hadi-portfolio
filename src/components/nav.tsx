@@ -38,14 +38,11 @@ export function Nav() {
   }, []);
 
   return (
-    <header className="fixed left-[50vw] top-0 z-50 w-[calc(100vw-2rem)] max-w-6xl -translate-x-1/2 pt-4">
-      <div
-        className={`site-nav flex w-full items-center justify-between gap-4 rounded-2xl px-4 py-3 transition-all duration-300 sm:px-5 ${
-          scrolled
-            ? "glass shadow-[0_18px_50px_-30px_rgba(16,185,129,0.6)]"
-            : "border border-transparent bg-surface backdrop-blur-sm"
-        }`}
-      >
+    <header
+      data-scrolled={scrolled ? "true" : "false"}
+      className="site-header fixed inset-x-0 top-0 z-50 pt-[env(safe-area-inset-top)] backdrop-blur-xl"
+    >
+      <div className="mx-auto flex h-[68px] w-full max-w-6xl items-center justify-between gap-4 px-5 sm:h-[76px] sm:px-8">
         <a
           href="#home"
           className="group flex items-center gap-2.5"
@@ -133,8 +130,8 @@ export function Nav() {
       </div>
 
       {open && (
-        <div className="mx-auto mt-2 w-full max-w-6xl md:hidden">
-          <nav className="glass flex flex-col gap-1 rounded-2xl p-3 shadow-2xl">
+        <div className="border-t border-line md:hidden">
+          <nav className="mx-auto flex w-full max-w-6xl flex-col gap-1 px-5 py-3 sm:px-8">
             {t.nav.map((item) => (
               <a
                 key={item.id}
