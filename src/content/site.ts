@@ -181,7 +181,7 @@ export const site: Record<Lang, SiteContent> = {
       ],
       stats: [
         { value: "۳+", label: "سال تجربه" },
-        { value: "۴", label: "پروژهٔ متن‌باز" },
+        { value: "۵", label: "پروژهٔ متن‌باز" },
         { value: "۱۲", label: "تکنولوژی" },
         { value: "۱۰۰٪", label: "تمرکز روی فرانت‌اند" },
       ],
@@ -391,7 +391,7 @@ export const site: Record<Lang, SiteContent> = {
       ],
       stats: [
         { value: "3+", label: "Years of experience" },
-        { value: "4", label: "Open-source projects" },
+        { value: "5", label: "Open-source projects" },
         { value: "12", label: "Technologies" },
         { value: "100%", label: "Front-end focus" },
       ],
