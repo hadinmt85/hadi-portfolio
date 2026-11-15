@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { ArrowUpRight, Download, Github } from "@/components/icons";
 import type { Project } from "@/content/site";
 
-const PROJECT_ORDER = ["portfolio", "product-store", "license-market", "hadi-store"];
+const PROJECT_ORDER = ["kafeyar", "hadi-store", "product-store", "license-market"];
 
 function CapIcon({ className = "" }: { className?: string }) {
   return (
