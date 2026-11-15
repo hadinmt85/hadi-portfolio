@@ -250,7 +250,7 @@ export const site: Record<Lang, SiteContent> = {
     },
     projects: {
       kicker: "نمونه‌کارها",
-      title: "پروژه‌هایی که خودم ساخته‌ام",
+      title: "پروژه‌هایی که ساخته‌ام",
       desc: "پروژه‌های متن‌باز من؛ کد همه‌شان روی گیت‌هاب در دسترس است.",
       linkLabel: "مشاهده در گیت‌هاب",
       allLabel: "همهٔ پروژه‌ها در گیت‌هاب",
@@ -463,7 +463,7 @@ export const site: Record<Lang, SiteContent> = {
     },
     projects: {
       kicker: "Selected work",
-      title: "Projects I've built myself",
+      title: "Projects I've built",
       desc: "My open-source projects — all the code is available on GitHub.",
       linkLabel: "View on GitHub",
       allLabel: "All projects on GitHub",
