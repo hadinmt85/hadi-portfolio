@@ -37,6 +37,10 @@ export function Education() {
   ).filter((project): project is Project => Boolean(project));
 
   const skills = ["React", "Next.js", "TypeScript", "Tailwind", "Git", "REST API", "Figma"];
+  const courses = education.courses
+    .split(/[،,]\s*/)
+    .map((course) => course.trim())
+    .filter(Boolean);
 
   return (
     <section id="journey" data-section className="relative py-20 sm:py-28">
@@ -61,7 +65,7 @@ export function Education() {
 
         <div className="mt-12 grid gap-5 lg:grid-cols-2">
           <Reveal>
-            <div className="h-full rounded-3xl border border-line bg-surface p-6 sm:p-7">
+            <div className="flex h-full flex-col rounded-3xl border border-line bg-surface p-6 sm:p-7">
               <div className="grid h-12 w-12 place-items-center rounded-2xl border border-accent/25 bg-accent/10 text-accent">
                 <CapIcon className="h-6 w-6" />
               </div>
@@ -72,14 +76,20 @@ export function Education() {
               </p>
               <p className="mt-4 font-mono text-[11.5px] text-accent">{education.period}</p>
 
-              <span className="mt-4 inline-flex items-center gap-2 rounded-full border border-accent/25 bg-accent/10 px-3 py-1.5 text-[11px] text-accent">
+              <span className="mt-4 inline-flex items-center gap-2 self-start rounded-full border border-accent/25 bg-accent/10 px-3 py-1.5 text-[11px] text-accent">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 {education.status}
               </span>
 
               <div className="mt-6 border-t border-line pt-4">
                 <p className="text-[10px] uppercase tracking-[0.18em] text-muted/70">{education.coursesLabel}</p>
-                <p className="mt-2 text-[12.5px] leading-6 text-muted">{education.courses}</p>
+                <div className="mt-2 flex flex-wrap gap-1.5">
+                  {courses.map((course) => (
+                    <span key={course} className="tag">
+                      {course}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               <div className="mt-5 border-t border-line pt-4">
@@ -96,6 +106,25 @@ export function Education() {
               <div className="mt-5 border-t border-line pt-4">
                 <p className="text-[10px] uppercase tracking-[0.18em] text-muted/70">{education.languagesLabel}</p>
                 <p className="mt-2 text-[12.5px] leading-6 text-muted">{education.languages}</p>
+              </div>
+
+              <div className="mt-5 border-t border-line pt-4">
+                <p className="text-[10px] uppercase tracking-[0.18em] text-muted/70">{education.focusLabel}</p>
+                <p className="mt-2 text-[12.5px] leading-6 text-muted">{education.focus}</p>
+              </div>
+
+              <div className="mt-auto pt-6">
+                <div className="flex flex-wrap items-center justify-between gap-3 border-t border-line pt-4">
+                  <span className="text-[10.5px] leading-5 text-muted/70">{education.resumeNote}</span>
+                  <a
+                    href="/resume.pdf"
+                    download
+                    className="inline-flex items-center gap-1.5 rounded-full border border-accent/35 bg-accent/10 px-3.5 py-2 text-[11.5px] font-medium text-accent transition-colors hover:bg-accent/20"
+                  >
+                    <Download className="h-3.5 w-3.5" />
+                    {education.resumeCta}
+                  </a>
+                </div>
               </div>
             </div>
           </Reveal>

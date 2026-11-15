@@ -60,6 +60,9 @@ export type SiteContent = {
     languages: string;
     resumeCta: string;
     projectsLabel: string;
+    focusLabel: string;
+    focus: string;
+    resumeNote: string;
   };
   skills: {
     kicker: string;
@@ -203,6 +206,9 @@ export const site: Record<Lang, SiteContent> = {
       languages: "فارسی · انگلیسی (متوسط، در حال تقویت)",
       resumeCta: "دانلود رزومه",
       projectsLabel: "پروژه‌های منتخب",
+      focusLabel: "تمرکز فعلی",
+      focus: "Server Components، دسترس‌پذیری و Core Web Vitals",
+      resumeNote: "جزئیات کامل دروس و پروژه‌ها در رزومه",
     },
     skills: {
       kicker: "مهارت‌ها",
@@ -413,6 +419,9 @@ export const site: Record<Lang, SiteContent> = {
       languages: "Persian · English (intermediate, improving)",
       resumeCta: "Download resume",
       projectsLabel: "Selected projects",
+      focusLabel: "Current focus",
+      focus: "Server Components, accessibility and Core Web Vitals",
+      resumeNote: "Full coursework and project details in the resume",
     },
     skills: {
       kicker: "Skills",
