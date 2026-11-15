@@ -120,6 +120,7 @@ const PROJECT_IMAGES = {
   lisens: { src: "/lisens.webp", width: 1200, height: 5643 },
   portfolio: { src: "/portfolio.webp", width: 1200, height: 3248 },
   hadiStore: { src: "/hadi-store.webp", width: 1280, height: 3161 },
+  kafeyar: { src: "/kafeyar.webp", width: 1200, height: 7136 },
 } satisfies Record<string, ProjectImage>;
 
 export const siteLinks = {
@@ -262,6 +263,19 @@ export const site: Record<Lang, SiteContent> = {
           demo: "https://hadi-digital.ir",
           gradient: "linear-gradient(135deg, #2b2c46 0%, #3f4064 45%, #ef4056 100%)",
           accent: "#fecdd3",
+        },
+        {
+          title: "منوی آنلاین کافه‌یار",
+          blurb: "منوی آنلاین کافه با ۳۳ آیتم، فنجان‌های تصویرسازی‌شده از بالا، سبد خرید ماندگار و ثبت سفارش حضوری یا بیرون‌بر؛ رابط فارسی راست‌به‌چپ با Tailwind و کنتراست AA.",
+          tags: ["Next.js", "JavaScript", "Tailwind", "RTL"],
+          year: "۱۴۰۵",
+          period: "آبان ۱۴۰۵",
+          href: "https://github.com/hadinmt85/menu-online",
+          image: PROJECT_IMAGES.kafeyar,
+          slug: "kafeyar",
+          demo: "https://menu-online-fawn.vercel.app",
+          gradient: "linear-gradient(135deg, #2a1810 0%, #3b2418 55%, #a25a27 100%)",
+          accent: "#e8c4a4",
         },
         {
           title: "فروشگاه محصولات",
@@ -459,6 +473,19 @@ export const site: Record<Lang, SiteContent> = {
           demo: "https://hadi-digital.ir",
           gradient: "linear-gradient(135deg, #2b2c46 0%, #3f4064 45%, #ef4056 100%)",
           accent: "#fecdd3",
+        },
+        {
+          title: "Kafeyar — Cafe Menu",
+          blurb: "An online cafe menu with 33 items, top-down illustrated cups, a persistent cart and dine-in or takeaway ordering, in a Persian RTL-first interface built with Tailwind and AA contrast.",
+          tags: ["Next.js", "JavaScript", "Tailwind", "RTL"],
+          year: "2026",
+          period: "Nov 2026",
+          href: "https://github.com/hadinmt85/menu-online",
+          image: PROJECT_IMAGES.kafeyar,
+          slug: "kafeyar",
+          demo: "https://menu-online-fawn.vercel.app",
+          gradient: "linear-gradient(135deg, #2a1810 0%, #3b2418 55%, #a25a27 100%)",
+          accent: "#e8c4a4",
         },
         {
           title: "Product Store",

@@ -15,6 +15,38 @@ export type CaseStudyCopy = {
 
 export const caseStudies: Record<Lang, Record<string, CaseStudyCopy>> = {
   fa: {
+    kafeyar: {
+      role: "طراحی رابط و توسعهٔ فرانت‌اند",
+      timeline: "آبان ۱۴۰۵ — ۱ هفته",
+      summary:
+        "منوی آنلاین کافه با ۳۳ آیتم: مشتری دسته‌بندی را انتخاب می‌کند، آیتم را به سبد اضافه می‌کند و سفارش حضوری یا بیرون‌بر ثبت می‌شود. کل رابط فارسی و راست‌به‌چپ است و با Tailwind ساخته شده.",
+      sections: [
+        {
+          title: "مسئله",
+          body: "منوی کاغذی کافه سریع کهنه می‌شود و به‌روزرسانی قیمت‌ها سخت است؛ از طرف دیگر بیشتر منوهای آنلاین قالب‌های آماده با عکس‌های استوک‌اند و شخصیت کافه را از بین می‌برند. هدف این بود که منویی ساخته شود که هم سفارش بگیرد و هم شبیه خود کافه باشد.",
+        },
+        {
+          title: "رویکرد",
+          body: "به‌جای کارت و عکس، همه‌چیز از بالا و مثل نگاه به میز کافه کشیده شد: فنجان، لیوان یخ‌دار، بشقابک شیرینی و حلقه‌های ردّ فنجان. انتخاب فنجان با CSS خالص پیاده شد تا state جدیدی به منطق اضافه نشود؛ سبد خرید در localStorage می‌ماند و فاکتور با ۹٪ مالیات و شمارهٔ پیگیری از API ثبت سفارش برمی‌گردد.",
+          bullets: [
+            "تصویرسازی SVG برای هر ۳۳ آیتم، بدون عکس استوک",
+            "انتخاب فنجان با radio و :has، بدون افزودن state به کامپوننت",
+            "سبد ماندگار با localStorage و شمارندهٔ تعداد در هدر",
+            "اعتبارسنجی نام، موبایل و شمارهٔ میز در کلاینت و سرور",
+            "سه فونت: Aref Ruqaa برای تیتر، وزیرمتن برای متن و نسخ برای قیمت",
+            "همهٔ فاصله‌ها با logical properties تا RTL درست کار کند",
+          ],
+        },
+        {
+          title: "چالش‌ها",
+          body: "بزرگ‌ترین چالش کنتراست بود: مسی روشن روی کرم فقط ۳٫۳:۱ می‌داد و از حد AA پایین‌تر بود، بنابراین متن‌های کوچک و دکمه‌های توپر به مسی تیره‌تر تغییر کردند. چالش دوم ذخیرهٔ سفارش روی Vercel بود؛ فایل‌سیستم سرورلس فقط‌خواندنی است، پس دمو پیام خطای شفاف نشان می‌دهد و ذخیره‌سازی واقعی به دیتابیس یا ربات تلگرام موکول شده است.",
+        },
+        {
+          title: "نتیجه",
+          body: "خروجی، منویی است که روی موبایل و دسکتاپ یکدست است، در Lighthouse هر سه بخش دسترس‌پذیری، بهترین‌روش‌ها و سئو نمرهٔ ۱۰۰ می‌گیرد و با ویرایش یک فایل داده برای هر کافه‌ای قابل استفاده است.",
+        },
+      ],
+    },
     "hadi-store": {
       role: "طراحی و توسعهٔ فول‌استک",
       timeline: "آبان ۱۴۰۵ — پروژهٔ شخصی",
@@ -141,6 +173,38 @@ export const caseStudies: Record<Lang, Record<string, CaseStudyCopy>> = {
     },
   },
   en: {
+    kafeyar: {
+      role: "UI design & front-end development",
+      timeline: "Nov 2026 — 1 week",
+      summary:
+        "An online cafe menu with 33 items: pick a category, add to cart and place a dine-in or takeaway order. The whole interface is Persian and RTL-first, built with Tailwind.",
+      sections: [
+        {
+          title: "Problem",
+          body: "Paper menus go stale fast and updating prices is painful, while most online menus are generic templates with stock photos that erase the cafe's character. The goal was a menu that both takes orders and still feels like the place.",
+        },
+        {
+          title: "Approach",
+          body: "Instead of cards and photos, everything is drawn from above, like looking down at a cafe table: cups, iced glasses, pastry plates and the rings a cup leaves behind. Cup selection is pure CSS so no extra state was added to the logic; the cart lives in localStorage and the bill comes back from the order API with 9% tax and a tracking code.",
+          bullets: [
+            "SVG illustration for all 33 items instead of stock photography",
+            "Cup selection with radio inputs and :has, no extra component state",
+            "Persistent cart in localStorage with a header counter",
+            "Name, phone and table validation on both client and server",
+            "Three typefaces: Aref Ruqaa for headings, Vazirmatn for body, Naskh for prices",
+            "Logical spacing properties so RTL behaves correctly",
+          ],
+        },
+        {
+          title: "Challenges",
+          body: "Contrast was the main one: light copper on cream only reached 3.3:1 and failed AA, so small text and filled buttons moved to a deeper copper. The second was order storage on Vercel — the serverless filesystem is read-only, so the demo shows a clear error message and real persistence is left to a database or a Telegram bot.",
+        },
+        {
+          title: "Result",
+          body: "A consistent menu on mobile and desktop that scores 100 in all three Lighthouse categories (accessibility, best practices, SEO) and can be reused for any cafe by editing a single data file.",
+        },
+      ],
+    },
     "hadi-store": {
       role: "Full-stack design & development",
       timeline: "Nov 2026 — Personal project",
