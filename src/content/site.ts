@@ -219,10 +219,10 @@ export const site: Record<Lang, SiteContent> = {
           title: "فرانت‌اند",
           caption: "هستهٔ کار من",
           skills: [
-            { name: "React", level: 95 },
-            { name: "Next.js", level: 92 },
+            { name: "React", level: 82 },
+            { name: "Next.js", level: 80 },
             { name: "TypeScript", level: 88 },
-            { name: "JavaScript (ES2023)", level: 94 },
+            { name: "JavaScript (ES2023)", level: 87 },
           ],
         },
         {
@@ -432,10 +432,10 @@ export const site: Record<Lang, SiteContent> = {
           title: "Front-end",
           caption: "The core of my work",
           skills: [
-            { name: "React", level: 95 },
-            { name: "Next.js", level: 92 },
+            { name: "React", level: 82 },
+            { name: "Next.js", level: 80 },
             { name: "TypeScript", level: 88 },
-            { name: "JavaScript (ES2023)", level: 94 },
+            { name: "JavaScript (ES2023)", level: 87 },
           ],
         },
         {
