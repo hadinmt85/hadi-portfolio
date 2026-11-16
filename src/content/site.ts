@@ -123,7 +123,7 @@ const PROJECT_IMAGES = {
   lisens: { src: "/lisens.webp", width: 1200, height: 5643 },
   portfolio: { src: "/portfolio.webp", width: 1200, height: 6494 },
   hadiStore: { src: "/hadi-store.webp", width: 1280, height: 3089 },
-  kafeyar: { src: "/kafeyar.webp", width: 1200, height: 7136 },
+  kafeyar: { src: "/kafeyar.webp", width: 1200, height: 7585 },
 } satisfies Record<string, ProjectImage>;
 
 export const siteLinks = {
